@@ -1,0 +1,10 @@
+.DS_Store
+tmp
+log
+public/photos
+doc/api
+test/**/*
+db/*.sqlite3
+data.dump
+config/ultrasphinx/*.conf
+db/schema.rb

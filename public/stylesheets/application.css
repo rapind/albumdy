@@ -1,0 +1,15 @@
+.thumbnail { 
+  background-color:#222222;
+  border:1px solid #2A2A2A;
+  float:left;
+  margin-bottom:10px;
+  margin-right:10px;
+  padding:3px 3px 8px;
+}
+
+.section { 
+  border-top:4px solid #3D3D33;
+  overflow:auto;
+  padding:1.4em 0pt 3.2em;
+  width:100%;
+}

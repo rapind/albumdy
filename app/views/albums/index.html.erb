@@ -1,0 +1,24 @@
+<h1>Listing Albums</h1>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th></th>
+		<th></th>
+	</tr>
+	
+<% for album in @albums %>
+	
+	<tr>
+		<td><%= link_to "#{album.name}", album %></td>
+		<td><%= link_to 'Edit', edit_album_path(album) %></td>
+		<td><%= link_to 'Destroy', album, :confirm => "Are you sure?", :method => :delete   %></td>
+	</tr>
+	
+<% end %>
+
+</table>
+
+<br>
+
+<%= link_to 'New Album', new_album_path %>

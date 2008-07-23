@@ -1,0 +1,42 @@
+<h3 style="clear: both;">Upload a New Photo to <%= @album.name %></h3>
+
+<% if @album.photos  %>
+
+<div class="section">
+Roll over and click right side of image to move forward. Alternatively you can press the right arrow key.
+Press Esc to close. You can also click on the close button.
+
+
+	<% @album.photos.each do |photo| %>
+		
+	<div class="thumbnail">
+		<%= lightbox_image_tag(photo.public_filename(:thumb), photo.public_filename , {:class=>"images"}, :title => photo.title, :rel => "lightbox[photos]") %>	
+	    <div>  
+	      <%= link_to 'Delete Photo', album_photo_url(@album, photo), :confirm => 'Are you sure?', :method => :delete %>
+	    </div>
+	</div>
+	
+	<% end %>
+</div>
+<% end %>
+
+<% form_for(:photo, :url => album_photos_url(@album),  :html => { :multipart => true }) do |f| %>
+	
+	<p>
+		<b>Title</b><br>
+		<%= f.text_field :title %>
+	</p>
+	
+	<p>
+		Upload a photo:
+		<%= f.file_field :uploaded_data %>
+		The system is setup to accept files up to 500 KB
+	</p>
+	
+	<p>
+		<%= f.submit "Upload Photo" %>
+	</p>
+	
+<% end %>
+
+<%= link_to "Back", albums_path %>
