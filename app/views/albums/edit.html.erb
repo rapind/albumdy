@@ -1,9 +1,3 @@
-<% form_for(@album) do |f| %>
-
-  <%= render :partial => "form", :locals => {:f => f} %>
-
-	<p>
-		<%= submit_tag "Update" %>
-	</p>
-
-<% end %>
+<% form_for(@album) do |f| -%>
+  <%= render :partial => "form", :locals => {:f => f, :action => 'Update'} %>
+<% end -%>

@@ -1,4 +1,6 @@
-<%= f.label :title %><br />
-<%= f.text_field :title, :class => 'text' %>
-braid add -p -t git git://github.com/giraffesoft/resource_controller.git
+<p>
+  <%= f.label :title %><br />
+  <%= f.text_field :title, :class => 'text' %>
+</p>
+
 <%= render :partial => 'shared/buttons', :locals => {:action => action, :collection_url => collection_url} %>

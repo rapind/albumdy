@@ -5,5 +5,3 @@
 <% form_for(@album)  do |f| -%>
 	<%= render :partial => "form", :locals => {:f => f, :action => 'Create'} %>
 <% end -%>
-
-<%= link_to 'Back', albums_path %>
