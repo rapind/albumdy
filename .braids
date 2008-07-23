@@ -1,0 +1,8 @@
+--- 
+vendor/plugins/attachment_fu: 
+  local_branch: braid/git/vendor/plugins/attachment-fu/master
+  type: git
+  revision: 
+  branch: master
+  squash: true
+  remote: git://github.com/technoweenie/attachment_fu.git
