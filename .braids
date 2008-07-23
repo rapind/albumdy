@@ -1,4 +1,11 @@
 --- 
+vendor/plugins/restful-authentication: 
+  local_branch: braid/git/vendor/plugins/restful-authentication/master
+  type: git
+  revision: 
+  branch: master
+  squash: true
+  remote: git://github.com/technoweenie/restful-authentication.git
 vendor/plugins/resource_controller: 
   local_branch: braid/git/vendor/plugins/resource-controller/master
   type: git
