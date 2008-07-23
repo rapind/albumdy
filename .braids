@@ -20,3 +20,10 @@ vendor/plugins/attachment_fu:
   branch: master
   squash: true
   remote: git://github.com/technoweenie/attachment_fu.git
+vendor/plugins/will_paginate: 
+  local_branch: braid/git/vendor/plugins/will-paginate/master
+  type: git
+  revision: 
+  branch: master
+  squash: true
+  remote: git://github.com/mislav/will_paginate.git
