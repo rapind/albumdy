@@ -13,6 +13,12 @@ vendor/plugins/resource_controller:
   branch: master
   squash: true
   remote: git://github.com/giraffesoft/resource_controller.git
+vendor/plugins/acts_as_state_machine: 
+  local_branch: braid/svn/vendor/plugins/acts-as-state-machine
+  type: svn
+  revision: 
+  squash: true
+  remote: http://elitists.textdriven.com/svn/plugins/acts_as_state_machine
 vendor/plugins/attachment_fu: 
   local_branch: braid/git/vendor/plugins/attachment-fu/master
   type: git
