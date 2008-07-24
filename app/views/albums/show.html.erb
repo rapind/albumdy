@@ -1,4 +1,9 @@
-<h3 style="clear: both;">Upload a New Photo to <%= @album.name %></h3>
+<%= h @album.name %>
+
+<p>
+  <%= link_to 'Edit', edit_album_path(@album) %> | <%= link_to 'Remove', @album, :confirm => "Are you sure?", :method => :delete %>
+</p>
+
 
 <% if @album.photos -%>
 
