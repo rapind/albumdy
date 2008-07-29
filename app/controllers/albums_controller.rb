@@ -1,7 +1,6 @@
 class AlbumsController < ResourceController::Base
   
-  def show
-    @album = Album.find(params[:id])
-  end
+  update.flash 'Album successfully updated.'
+  destroy.flash 'Album successfully removed.'
   
 end

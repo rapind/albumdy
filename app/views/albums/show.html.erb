@@ -1,29 +1,140 @@
-<%= h @album.name %>
+<script type="text/javascript">
 
+var swfu;
+
+$(function() {
+	
+	function bindLightBox() {
+	  $('#photos a[@rel*=show]').lightBox();
+	}
+	
+	bindLightBox();
+	
+	// Capture clicks within the photos list.
+	// This allows us to trap events from dynamically added ajax content within it.
+	$('#photos').click(function(e) {
+	  
+    if( $(e.target).is('a[@rel*=remove]') ) {
+      // remove link clicked, launch ajax remove
+      
+      // get the parent div so we can remove it on successful deletion
+  	  var thumb = $(e.target).parents("li");
+
+      // send the ajax delete request. This requires passing a _method=delete 
+      // param for the browser REST compatibility that rails supports.
+  	  $.post(e.target.href, {_method:"delete", authenticity_token:"<%= form_authenticity_token %>"}, function(data) {
+  	    // remove the thumbnail from the display on success
+        thumb.remove();
+        
+        // re-bind lightbox to the photos elements so we have a correct count
+        bindLightBox();
+  	  });
+    
+    } else if( $(e.target).is('a[@rel*=edit]') ) {
+      // edit link clicked, launch thickbox
+      tb_show(e.target.title, e.target.href);
+       
+    }
+    
+    // cancel the click
+    return false;
+    
+  });
+  
+  var settings = {
+		flash_url : "/assets/swfupload_f9.swf",
+		upload_url: "<%= album_photos_path(@album) %>",
+		file_size_limit : "50 MB",
+		file_types : "*.*",
+		file_types_description : "All Images",
+		file_upload_limit : 50,
+		file_queue_limit : 0,
+		custom_settings : {
+			progressTarget : "fsUploadProgress",
+			cancelButtonId : "btnCancel"
+		},
+		debug: false,
+
+		// The event handler functions are defined in handlers.js
+		file_queued_handler : fileQueued,
+		file_queue_error_handler : fileQueueError,
+		file_dialog_complete_handler : fileDialogComplete,
+		upload_start_handler : uploadStart,
+		upload_progress_handler : uploadProgress,
+		upload_error_handler : uploadError,
+		upload_success_handler : uploadSuccess,
+		upload_complete_handler : uploadComplete,
+		queue_complete_handler : queueComplete	// Queue plugin event
+	};
+
+	swfu = new SWFUpload(settings);
+	
+	// append each new photo as they are uploaded to the list of photos via ajax
+	function uploadComplete(file) {
+	  $.get("<%= thumb_album_photos_path(@album) %>?filename=" + file.name, function(data){
+      $("#photos").append(data);
+      
+      // re-bind lightbox to the photos elements
+      bindLightBox();
+    });
+	}
+	
+
+	
+	$("#photos").sortable({ 
+      placeholder: "ui-selected",
+      opacity: 0.7,
+      onchange: function (changes) {
+        // todo - get the photo id and the new position
+        var photo_id = 398;
+        $.post('/albums/<%= @album.id %>/photos/' + photo_id + '/update_order', {_method:"put", authenticity_token:"<%= form_authenticity_token %>", position:"0"}, function(data) {
+     	    
+          // re-bind lightbox to the photos elements so we have a correct count
+          bindLightBox();
+     	  });
+      },
+      revert: true
+  });
+  
+  
+  function saveOrder() {
+    var items = $(".photo_li");
+    var photos = [];
+
+    for(var x=0; x<items.length; x++) {
+      var photo = {}
+      photo.id = items[x].id;
+      photos.push(photo);
+    }
+
+    var photoList = {};
+    photoList.Photos = photos;
+
+    // *** Page JSON wrapper    
+    httpJson("SaveList", photoList, function(result) { showMessage("Changes have been saved...", msgTimeout); }, pageError);
+
+    return photos;
+  }
+  
+});
+</script>
+<h1>
+  <%= h @album.title %>
+</h1>
 <p>
-  <%= link_to 'Edit', edit_album_path(@album) %> | <%= link_to 'Remove', @album, :confirm => "Are you sure?", :method => :delete %>
+  <%= link_to 'Edit', "#{edit_album_path(@album)}?width=315&height=340", :title => h(@album.title), :class => 'thickbox' %> | <%= link_to 'Remove', @album, :confirm => "Are you sure want to remove this album and all of it's photos?", :method => :delete %> | <%= link_to "Back", albums_path %>
 </p>
-
-
-<% if @album.photos -%>
-
-  <div class="section">
-    Roll over and click right side of image to move forward. Alternatively you can press the right arrow key.
-    Press Esc to close. You can also click on the close button.
-
-
-  	<% for photo in @album.photos -%>
-  	  <div class="thumbnail">
-  	    <%= link_to image_tag(photo.public_filename(:thumb), :alt => photo.title, :title => photo.title), photo.public_filename, :title => photo.title, :rel => "lightbox[photos]" %>	
-  	    <div>
-  	      <%= link_to 'Delete Photo', album_photo_url(@album, photo), :confirm => 'Are you sure?', :method => :delete %>
-  	    </div>
-  	  </div>
-	
-  	<% end -%>
-	
+<form id="form1" action="#" method="post" enctype="multipart/form-data">
+  <div>
+    <input type="button" value="Upload Photos" onclick="swfu.selectFiles()" style="font-size:8pt; border-width:1px; margin-bottom:10px; padding:2px 3px;" />
+    <input id="btnCancel" type="button" value="Cancel All Uploads" onclick="swfu.cancelQueue();" disabled="disabled" style="font-size:8pt; border-width:1px; margin-bottom:10px; padding:2px 3px;" />
   </div>
-
-<% end -%>
-
-<%= link_to "Back", albums_path %>
+</form>
+<fieldset>
+  <legend>Photos</legend>
+  <ul id="photos">
+    <%= render :partial => "photos/photo", :collection => @album.photos %>
+  </ul>
+</fieldset>
+<div id="data" style="background-color: #CCCCCC; padding: 15px; border: solid 1px #999;">
+</div>

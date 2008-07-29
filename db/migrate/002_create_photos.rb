@@ -1,8 +1,11 @@
 class CreatePhotos < ActiveRecord::Migration
   def self.up
     create_table :photos do |t|
-      t.references :album, :null => false
-      t.string :title, :limit => 255, :null => false
+      # can't specify required fields because thumbnails are stored in this same table as child objects
+      # (self-referecing parent/child)
+      t.references :album
+      t.integer :position, :null => false, :default => 0
+      t.string :title, :limit => 255
       t.text :description
       
       # attachment_fu fields

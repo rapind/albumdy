@@ -1,13 +1,12 @@
-<h1>Your Albums</h1>
-	
-<% for album in @albums -%>
-  <div class="span-3">
-    <%= link_to "#{album.name}", album %>
-  </div>
-<% end -%>
+<h1>Albums</h1>
+<hr>
+<h2>
+  <%= link_to 'Create New Album', new_album_path %>
+</h2>
 
-</table>
-
-<br>
-
-<%= link_to 'New Album', new_album_path %>
+<fieldset>
+  <legend>Albums</legend>
+  <ul id="albums">
+    <%= render :partial => "album", :collection => @albums %>
+  </ul>
+</fieldset>

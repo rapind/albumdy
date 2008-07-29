@@ -3,17 +3,17 @@
 <head>
 <title><%= @page_title || 'Al Bumdy' %></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<%= stylesheet_link_tag 'blueprint/screen', 'buttons/screen', 'jquery.lightbox-0.5.css', 'application', :media => 'screen, projection' %>
+<%= stylesheet_link_tag 'blueprint/screen', 'buttons/screen', 'thickbox', 'jquery.lightbox-0.5.css', 'application', :media => 'screen, projection' %>
 <%= stylesheet_link_tag 'blueprint/print', :media => 'print' %>
 <!--[if IE]><%= stylesheet_link_tag 'blueprint/ie', :media => 'screen, projection' %><![endif]-->
-<%= javascript_include_tag 'jquery-1.2.6.min.js', 'jquery.lightbox-0.5.min.js', 'application' %>
+<%= javascript_include_tag 'jquery-1.2.6.min.js', 'ui.core.min.js', 'ui.sortable.min.js', 'thickbox', 'jquery.lightbox-0.5.min.js', 'swfupload', 'fileprogress', 'handlers', 'swfupload.queue.js', 'application' %>
 </head>
 
 <body>
   <div class="container">
 		<% flash.each do |key,value| %>
   		<div id="flash" class="flash_<%= key %>">
-  			<span class="message"><%= value %></span>
+  			<%= value %>
   		</div>
 		<% end -%>
 		<%= yield :layout %>

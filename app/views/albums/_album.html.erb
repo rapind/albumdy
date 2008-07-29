@@ -1,0 +1,14 @@
+<li id="album_<%= album.id %>">
+  <div class="span-5 first">
+    <%= link_to image_tag(album.photos.blank? ? 'empty.gif' : album.photos.first.public_filename(:album_cover), :size => '180x180', :class => 'album_cover', :alt => h(album.title), :title => h(album.title)), album %>
+  </div>
+  <div class="span-6 last">
+    <p>
+      <%= link_to h(album.title), album %><br />
+      <small><%= h album.created_at.strftime("%b %d, %Y") %></small>
+    </p>
+    <p>
+      <%= h truncate(album.description, 240) %>
+    </p>
+  </div>
+</li>

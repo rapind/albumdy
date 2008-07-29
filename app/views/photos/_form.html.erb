@@ -1,0 +1,16 @@
+<p>
+  <% if @photo and @photo.filename and !@photo.filename.empty? -%>
+    <%= link_to image_tag(@photo.public_filename(:thumb), :alt => @photo.title), @photo.public_filename %>
+  <% end -%>
+  <%= f.file_field :uploaded_data, :class => 'text' %>
+</p>
+<p>
+  <%= f.label :title %><br />
+  <%= f.text_field :title, :class => 'text' %>
+</p>
+<p>
+  <%= f.label :description %><br />
+  <%= f.text_area :description %>
+</p>
+
+<%= render :partial => 'shared/buttons', :locals => {:action => action, :collection_url => album_path(@album)} %>
