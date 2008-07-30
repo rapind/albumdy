@@ -34,11 +34,20 @@ class PhotosController < ResourceController::Base
   end
   
   
-  def update_order
-    @photo = object = parent_object.photos.find(params[:id])
-    @photo.position = params[:position]
-    @photo.save
+  # update an individual photo's position
+  def update_position
+    @photo = parent_object.photos.find(params[:id])
+    @photo.insert_at(params[:position].to_i)
+    
+    #delta = params[:delta].to_i
+    #logger.info("Photo #{@photo.id}, delta: #{delta}")
+    
+    #@photo.position = params[:position].to_i
+    #if @photo.save!
+      render :text => 'Success'
+    #else
+    #  render :text => 'Error'
+    #end
   end
-  
   
 end

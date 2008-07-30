@@ -1,9 +1,31 @@
-<h1>Al Bumdy</h1>
+<h1>&lambda;lBumdy</h1>
 <hr>
-<h2>
-  <%= link_to 'Albums', albums_path %>
-</h2>
-
+<h3>
+  Yet another open source photo gallery application.
+</h3>
 <p>
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  There are many existing photo gallery apps around, but none I could find demonstrating the following key technologies:
+  <ul>
+    <li>Built with <%= link_to 'Ruby on Rails', 'http://www.rubyonrails.org/', :target => '_new', :rel => 'nofollow' %></li>
+    <li>CSS layout with <%= link_to 'Blueprint CSS', 'http://code.google.com/p/blueprintcss/', :target => '_new', :rel => 'nofollow' %></li>
+    <li>Client side scripting with the popular and unobtrusive <%= link_to 'jQuery', 'http://jquery.com/', :target => '_new', :rel => 'nofollow' %></li>
+    <li>Lightboxing effects using <%= link_to "Leandro Vieira Pinho's jQuery lightBox", 'http://jquery.com/', :target => '_new', :rel => 'nofollow' %></li>
+    <li>Textboxing effects using <%= link_to "Cody Lindley's ThickBox", 'http://jquery.com/demo/thickbox/', :target => '_new', :rel => 'nofollow' %></li>
+    <li>Thin controllers with <%= link_to "James Golick's resource_controller", 'http://jamesgolick.com/resource_controller', :target => '_new', :rel => 'nofollow' %></li>
+    <li>File uploads and thumbnail generation with <%= link_to "Rick Olson's attachment_fu", 'http://github.com/technoweenie/attachment_fu/wikis', :target => '_new', :rel => 'nofollow' %></li>
+    <li>User Registration with <%= link_to "Rick Olson's restful_authentication", 'http://github.com/technoweenie/restful-authentication/tree/master', :target => '_new', :rel => 'nofollow' %></li>
+    <li>Plugin management for Git with <%= link_to "Cristi Balan's Braid", 'http://github.com/evilchelu/braid/tree/master', :target => '_new', :rel => 'nofollow' %></li>
+    <li>Project hosting with <%= link_to "GitHub", 'http://github.com/', :target => '_new', :rel => 'nofollow' %></li>
+  </ul>
 </p>
+<p>
+  There are several other technologies I am considering migrating to or at least checking out within the context of this application:
+  <ul>
+    <li>Probably swapping attachment_fu for <%= link_to "Thoughtbot's paperclip", 'http://www.thoughtbot.com/projects/paperclip', :target => '_new', :rel => 'nofollow' %> to reduce the complexity attachment_fu adds. Depending on where paperclip adds Amazon S3 support.</li>
+    <li>Possibly swapping resource_controller for <%= link_to "Hampton Catlin's make_resourcerful", 'http://mr.hamptoncatlin.com/', :target => '_new', :rel => 'nofollow' %>, but for now I like resource_controller best.</li>
+    <li>Possibly using <%= link_to "Hampton Catlin's HAML", 'http://haml.hamptoncatlin.com/', :target => '_new', :rel => 'nofollow' %> for the views. I've used it before, but I'm already so comfortable with HTML that it really didn't add any value for me. Still, it's a great idea.</li>
+  </ul>
+</p>
+<h2>
+  Grab the source from <%= link_to "http://github.com/", 'http://github.com/' %>
+</h2>

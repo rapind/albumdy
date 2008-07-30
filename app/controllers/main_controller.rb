@@ -14,4 +14,8 @@ class MainController < ApplicationController
 
   def privacy
   end
+  
+  def sitemap
+  end
+  
 end

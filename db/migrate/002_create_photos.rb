@@ -4,7 +4,7 @@ class CreatePhotos < ActiveRecord::Migration
       # can't specify required fields because thumbnails are stored in this same table as child objects
       # (self-referecing parent/child)
       t.references :album
-      t.integer :position, :null => false, :default => 0
+      t.integer :position, :default => 0
       t.string :title, :limit => 255
       t.text :description
       

@@ -39,7 +39,7 @@ Rails::Initializer.run do |config|
   # Make sure the secret is at least 30 characters and all random, 
   # no regular words or you'll be exposed to dictionary attacks.
   config.action_controller.session = {
-    :session_key => '_album_session',
+    :session_key => '_albumdy_session',
     :secret      => '2ad74e3459c6de1132a294a34e4487fe80b46975e7f92360fc30e30ce8c571b3d41df86d5108df51a9efe5ed1f048b17638e7d23c9d4739a4c3ea937a239caaa'
   }
 
@@ -55,6 +55,7 @@ Rails::Initializer.run do |config|
 
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
+  config.active_record.observers = :user_observer
 
   # Make Active Record use UTC-base instead of local time
   # config.active_record.default_timezone = :utc

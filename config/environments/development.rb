@@ -16,3 +16,6 @@ config.action_view.cache_template_extensions         = false
 
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
+
+# Domain setting for mailers
+DOMAIN = "localhost:3000"

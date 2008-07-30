@@ -1,8 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-US">
 <head>
-<title><%= @page_title || 'Al Bumdy' %></title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta name="Keywords" content="<%=h @page_keywords || 'album, photo, gallery, ruby, rails, blueprint, jquery, lightbox, thickbox, resource_controller, attachment_fu, restful_authentication, braid, github' %>" />
+<meta name="Description" content="<%=h @page_description || 'AlBumdy is yet another open source photo gallery using the following technologies: ruby on rails, blueprint css, jquery, lightbox, thickbox, resource_controller, attachment_fu, restful_authentication, braid, github' %>" />
+<meta name="revisit-after" content="3 days" />
+<meta name="robots" content="index, follow" />
+<meta name="verify-v1" content="yJ4NDr+9jTHfPZFK5OD4/a7d/zQ1HY9iYekJxvbM1b0=" >
+<title><%=h @page_title || 'AlBumdy' %></title>
 <%= stylesheet_link_tag 'blueprint/screen', 'buttons/screen', 'thickbox', 'jquery.lightbox-0.5.css', 'application', :media => 'screen, projection' %>
 <%= stylesheet_link_tag 'blueprint/print', :media => 'print' %>
 <!--[if IE]><%= stylesheet_link_tag 'blueprint/ie', :media => 'screen, projection' %><![endif]-->
@@ -11,12 +16,85 @@
 
 <body>
   <div class="container">
-		<% flash.each do |key,value| %>
-  		<div id="flash" class="flash_<%= key %>">
-  			<%= value %>
-  		</div>
-		<% end -%>
-		<%= yield :layout %>
+    
+    <!-- state -->
+    <div class="span-24 header first last">
+      <div class="span-4 first">
+        <a href="/">&lambda;lBundy</a>
+      </div>
+      <div class="span-10">
+        -= Hosting albums since 2008 =-
+      </div>
+      <div class="span-10 last" align="right">
+        <% if user_logged_in? -%>
+          Logged in as: <%= current_user.login %> &raquo; &nbsp;
+          {
+          <%= link_to 'Logout', logout_path %> 
+        <% else -%>
+    			Welcome Guest &raquo; &nbsp;
+    			{
+    			<%= link_to "Signup", signup_path %>
+    			|
+    			<%= link_to 'Login', "#{login_path}?height=250&width=320", :title => 'Let me in', :class => 'thickbox' %>
+        <% end -%>
+        } &nbsp;
+      </div>
+    </div>
+    
+    <!-- header -->
+    <div class="span-24 navigation first last">
+      <div class="span-23 prepend-1">
+        &nbsp; What next? &raquo; &nbsp;
+        {
+        <% if user_logged_in? -%>
+          <%= link_to 'Update Your Profile', edit_user_path(current_user) %>
+          |
+          <%=link_to 'Albums', albums_path %>
+        <% else -%>
+          <%= link_to "Signup", signup_path %>
+          |
+          <%= link_to 'Login', "#{login_path}?height=250&width=320", :title => 'Let me in', :class => 'thickbox' %>
+          |
+          <%= link_to "What's the Deal?", about_path %>
+        <% end -%>
+        }
+      </div>
+    </div>
+    
+    <!-- status messages -->
+    <div class="span-24 first last">
+      <% flash.each do |key,value| %>
+    		<div id="flash" class="flash_<%= key %>" >
+    		  <% if key.to_s == 'alert' -%>
+    			  Woops: <%= value %>
+    			<% else -%>
+    			  Notice: <%= value %>
+    			<% end -%>
+    		</div>
+  		<% end -%>
+  	</div>
+  	
+  	<!-- content -->
+    <div class="span-22" style="background-color: #fff; border:1px; margin:20px; padding:20px;">
+      <%= yield :layout %>
+    </div>
+  
+    <!-- footer -->
+    <div class="span-24 first last" align="center">
+      <p>
+        <%= link_to 'About Us', about_path %>
+        |
+        <%= link_to 'Contact Us', contact_path, :class => 'thickbox' %>
+        |
+        <%= link_to 'Privacy', privacy_path %>
+        |
+        <%=link_to 'Terms of Use', terms_path %>
+      </p>
+      <p>
+        Copyright &copy; 2008, Dave Rapin, All Rights Reserved.
+      </p>
+    </div>
+		
   </div>
 </body>
 
