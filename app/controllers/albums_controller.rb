@@ -1,18 +1,12 @@
 class AlbumsController < ResourceController::Base
-  
-  update.flash 'Album successfully updated.'
-  destroy.flash 'Album successfully removed.'
-  
-  def update_photo_position
 
-    @album = Album.find(params[:id])
-    
-    if params[:photo_id] and params[:position] and !@album.blank?
-      photo = @album.photos.find(params[:photo_id])
-      photo.insert_at(params[:position].to_i)
-    end
-    
-    render :text => 'Success'
+  actions :index, :show
+  
+  private #--------------
+
+  # Defining the collection explicitly for paging and to only return visibles
+  def collection
+    @collection ||= end_of_association_chain.paginate :conditions => 'visible = true', :page => params[:page], :per_page => 10, :order => 'created_at DESC'
   end
   
 end

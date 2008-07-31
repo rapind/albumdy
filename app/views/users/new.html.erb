@@ -1,0 +1,47 @@
+<h3>Membership Singup</h3>
+<small>Yeah yeah, we know. Yet another signup form. Go ahead and use your beermail account. It's cool. You can use the demo / demo account to login if you just want to check it out. Passwords are encrypted using hash and salt, and we will never, ever share your information with anyone.</small>
+<hr>
+
+<%= error_messages_for :user %>
+
+<% form_for :user, :url => users_path  do |f| -%>
+
+  <div class="span-11 first">
+    
+    <p>
+  	  <%= f.label(:login) %>
+  	  &nbsp; <small>( Unique username. I.e. "jdoe" )</small><br />
+  	  <%= f.text_field :login, :class => 'text' %>
+  	</p>
+  	<p>
+  	  <%= f.label(:email) %>
+  	  &nbsp; <small>( Must be a valid email address or you won't get in )</small><br />
+  	  <%= f.text_field :email, :class => 'text' %>
+  	</p>
+  
+  </div>
+  
+  <div class="span-11 last">
+    
+  	<p>
+  	  <%= f.label(:password) %>
+  	  &nbsp; <small>( Enter a password between 4 and 40 characters in length )</small><br />
+  	  <%= f.password_field :password, :class => 'text' %>
+  	</p>
+  	<p>
+  	  <%= f.label(:confirm_password) %>
+  	  &nbsp; <small>( Enter the same password as above )</small><br />
+  	  <%= f.password_field :password_confirmation, :class => 'text' %>
+  	</p>
+
+  </div>
+  
+  <hr class="space">
+  
+  <p class="buttons">
+    <button type="submit" class="button positive">
+      <%= image_tag 'icons/key.png', :alt => '' %> &nbsp;Sign Up &raquo;
+    </button>
+  </p>
+
+<% end -%>

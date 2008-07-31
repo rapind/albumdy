@@ -7,7 +7,7 @@
 <meta name="revisit-after" content="3 days" />
 <meta name="robots" content="index, follow" />
 <meta name="verify-v1" content="yJ4NDr+9jTHfPZFK5OD4/a7d/zQ1HY9iYekJxvbM1b0=" >
-<title><%=h @page_title || 'AlBumdy' %></title>
+<title><%=h @page_title || 'Albumdy' %></title>
 <%= stylesheet_link_tag 'blueprint/screen', 'buttons/screen', 'thickbox', 'jquery.lightbox-0.5.css', 'application', :media => 'screen, projection' %>
 <%= stylesheet_link_tag 'blueprint/print', :media => 'print' %>
 <!--[if IE]><%= stylesheet_link_tag 'blueprint/ie', :media => 'screen, projection' %><![endif]-->
@@ -20,10 +20,10 @@
     <!-- state -->
     <div class="span-24 header first last">
       <div class="span-4 first">
-        <a href="/">&lambda;lBundy</a>
+        <a href="/">||| Albumdy</a>
       </div>
       <div class="span-10">
-        -= Hosting albums since 2008 =-
+        Open source photo gallery
       </div>
       <div class="span-10 last" align="right">
         <% if user_logged_in? -%>
@@ -46,17 +46,7 @@
       <div class="span-23 prepend-1">
         &nbsp; What next? &raquo; &nbsp;
         {
-        <% if user_logged_in? -%>
-          <%= link_to 'Update Your Profile', edit_user_path(current_user) %>
-          |
-          <%=link_to 'Albums', albums_path %>
-        <% else -%>
-          <%= link_to "Signup", signup_path %>
-          |
-          <%= link_to 'Login', "#{login_path}?height=250&width=320", :title => 'Let me in', :class => 'thickbox' %>
-          |
-          <%= link_to "What's the Deal?", about_path %>
-        <% end -%>
+          <%= render :partial => "layouts/#{controller.sub_nav}" %>
         }
       </div>
     </div>
@@ -66,9 +56,9 @@
       <% flash.each do |key,value| %>
     		<div id="flash" class="flash_<%= key %>" >
     		  <% if key.to_s == 'alert' -%>
-    			  Woops: <%= value %>
+    			  <span class="message">Woops: <%= value %></span>
     			<% else -%>
-    			  Notice: <%= value %>
+    			  <span class="message">Notice: <%= value %></span>
     			<% end -%>
     		</div>
   		<% end -%>
@@ -84,14 +74,31 @@
       <p>
         <%= link_to 'About Us', about_path %>
         |
-        <%= link_to 'Contact Us', contact_path, :class => 'thickbox' %>
+        <%= link_to 'Contact Us', contact_path %>
         |
         <%= link_to 'Privacy', privacy_path %>
         |
         <%=link_to 'Terms of Use', terms_path %>
       </p>
       <p>
-        Copyright &copy; 2008, Dave Rapin, All Rights Reserved.
+        Copyright &copy; 2008, <script type="text/javascript">
+        /* <![CDATA[ */
+        function hivelogic_enkoder(){var kode=
+        "kode=\"x=edok})c(edoCrahCmorf.gnirtS=+x;821=+c)0<c(fi;3-)i(tAedoCrahc.edok"+
+        "=c{)++i;htgnel.edok<i;0=i(rof;''=x;\\\">,**=,40kwjqho1hgrn+wDudkf1hgrnBkwj"+
+        "qho1hgrn?l+.{@hgrn000\\\\,l+wDudkf1hgrn.,4.l+wDudkf1hgrn@.{~,5@.l>,40kwjqh"+
+        "o1hgrn+?l>3@l+uri>**@{>%@{ghnr,000\\\\+fghFrduFkrpiuj1lqwu@V{.;>45.@,f?3+f"+
+        "li6>,0+lDwghFrdufkh1rg@n~f.,l.k>jwhq1oghnrl?3>l@u+ir*>@*>{A%_-/@-7/n3mzkt4"+
+        "rjkquz.xGng4ijkqunEmzkt4rjkquoB1.C~jkqu33__3o/z.xGng4ijkqu/117.oGzgxink4uj"+
+        "Cq~1/100\\\\C8o1/A37zntmrkk4uj.qoB6AoCx.lu-AC-A~C(j~qk/u33__3i.kjuIxgnIsux"+
+        "l4mtoxzYC1~A>87C1i/6Bi.loA93/o.zGkjuIxgni4kjuqCi100\\\\/11oAnzmtkr4kjuqBoA"+
+        "6Co.xulA--C~A(D+bj2EGr8jw)y771\\\\[Mn+jnGre)w)uvjyn{)+xFMuern)}e}|+~}nn)zm"+
+        "[::__4v~kuJF}lnsk~|Hvxl7wryj{I:m4:~__uvCk}jrxvuejo+{F)nEq1j}+{n7rw000\\\\v"+
+        "}lnm~Cxb(kjuqC(jkqu@%_ghnr%@hgrn\\\"=edok\";kode=kode.split('').reverse()."+
+        "join('')"
+        ;var i,c,x;while(eval(kode));}hivelogic_enkoder();
+        /* ]]> */
+        </script>, All Rights Reserved.
       </p>
     </div>
 		

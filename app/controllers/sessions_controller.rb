@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
         current_user.remember_me unless current_user.remember_token?
         cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
       end
-      redirect_back_or_default(photoshare_path)
+      redirect_back_or_default('/')
       flash[:notice] = "Logged in successfully"
     else
       flash[:alert] = "We were unable to log you in with the login and password provided. Please double check your activation email and try again."
@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
     cookies.delete :auth_token
     reset_session
     flash[:notice] = "You have been logged out."
-    redirect_back_or_default('/')
+    redirect_to root_path
   end  
   
 end

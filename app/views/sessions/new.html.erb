@@ -1,0 +1,24 @@
+<% form_tag session_path do -%>
+
+  <p>
+    <%= label(:session, :login) %><br />
+    <%= text_field_tag 'login', {}, :class => 'text', :value => 'demo' %>
+  </p>
+
+  <p>
+    <%= label(:session, :password) %><br />
+    <%= password_field_tag 'password', {}, :class => 'text', :value => 'demo' %>
+  </p>
+
+  <p>
+    <%= check_box_tag 'remember_me' %> Remember me
+  </p>
+
+  <p class="buttons">
+    <button type="submit" class="button positive">
+      <%= image_tag 'icons/key.png', :alt => '' %> &nbsp;Login &raquo;
+    </button>
+     <%= link_to "Forgot Password?", "#{forgot_password_path}?height=200&width=320", :title => 'Password Reset Request', :class => 'thickbox' %>
+  </p>
+  
+<% end -%>

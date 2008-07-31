@@ -1,4 +1,25 @@
-/* Overrides */
+/* -- Basic Overrides ------------------------------- */
+a {
+	color: #2d4c6a;
+	text-decoration: none;
+	}
+a:visited {
+  color: #2d4c6a;
+  text-decoration:none; 
+}
+a:active {
+	color: #147;
+	background: #def;
+}
+a:hover {
+	color: #147;
+	background: #def;
+}
+
+hr {
+  background-color: #3d5c7a;
+}
+
 legend {
 	font-size: 12px;
 }
@@ -8,6 +29,82 @@ textarea {
   height:150px;
 }
 
+
+/* -- Header ------------------------------- */
+.container {
+  background-color: #e5ecf9;
+}
+
+.header {
+	color: white;
+	background-color: #213242;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-weight: bold;
+}
+.header a:link {
+  color: #ddd;
+  padding:7px;
+}
+.header a:visited {
+  color: #ddd;
+  padding:7px;
+}
+.header a:active {
+  color: #fff;
+}
+.header a:hover {
+  color: white;
+  background:#3d5c7a;
+}
+
+/* -- Navigation ------------------------------- */
+.navigation {
+  color: white;
+  font-weight: bold;
+	background-color: #3d5c7a;
+	padding-top: 10px;
+	padding-bottom: 11px;
+}
+.navigation a:link {
+  color: #ddd;
+  padding:12px;
+}
+.navigation a:visited {
+  color: #ddd;
+  padding:12px;
+}
+.navigation a:active {
+  color: #fff;
+}
+.navigation a:hover {
+  color: white;
+  background:#213242;
+}
+
+/* -- Flashes ------------------------------- */
+.flash_alert {
+  color: #333;  
+	background: #fee;
+	border: solid 1px #db7;
+}
+
+.flash_alert .message {
+	padding: 0 0 0 25px;
+}
+
+.flash_notice {
+	color: #333;  
+	background: #efe;
+	border: solid 1px #bd7;
+}
+
+.flash_notice .message {
+	padding: 0 0 0 25px;
+}
+
+
+/* -- Albums ------------------------------- */
 #albums {
   margin: 0px;
 }
@@ -24,6 +121,7 @@ textarea {
   border:1px solid #2A2A2A;
 }
 
+/* -- Photos ------------------------------- */
 #photos {
   margin: 0px;
 }
@@ -38,29 +136,12 @@ textarea {
   padding:3px 3px 8px;
 }
 
-/* Custom */
+
+/* -- SWFUpload ------------------------------- */
 fieldset.queue {
   width: 375px;
 }
 
-.flash_alert {
-  color: #333;  
-	background: #fee;
-	border: solid 1px #db7;
-	padding: 0 0 0 25px;
-	margin-bottom: 10px;
-}
-
-.flash_notice {
-	color: #333;  
-	background: #efe;
-	border: solid 1px #bd7;
-	padding: 0 0 0 25px;
-	margin-bottom: 10px;
-}
-
-
-/* -- SWFUpload Styles ------------------------------- */
 .progressWrapper {
 	width: 357px;
 	overflow: hidden;

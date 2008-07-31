@@ -1,7 +1,7 @@
 require 'digest/sha1'
 class User < ActiveRecord::Base
   
-  has_many :albums, :dependent => :destroy
+  has_many :albums, :dependent => :destroy, :order => 'position'
   
   # Virtual attribute for the unencrypted password
   attr_accessor :password
@@ -18,9 +18,7 @@ class User < ActiveRecord::Base
   
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
-  attr_accessible :login, :email,
-                  :password, :password_confirmation,
-                  :name, :postal_code
+  attr_accessible :login, :email, :password, :password_confirmation, :full_name
   
   acts_as_state_machine :initial => :pending
   state :passive
