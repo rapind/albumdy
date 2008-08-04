@@ -1,152 +1,19 @@
 <script type="text/javascript">
 
-// file upload object
-var swfu;
-
 $(function() {
 	
-	// binds / rebinds lightbox to photo clicks
-	function bindLightBox() {
-	  $('#photos a[@rel*=show]').lightBox();
-	}
+	// binds lightbox to photo clicks
+  $('#photos a[@rel*=show]').lightBox();
 	
-	// bind the lightbox as son as we're loaded.
-	bindLightBox();
-	
-	// file upload settings
-  var settings = {
-		flash_url : "/assets/swfupload_f9.swf",
-		upload_url: "<%= album_photos_path(@album) %>",
-		file_size_limit : "50 MB",
-		file_types : "*.*",
-		file_types_description : "All Images",
-		file_upload_limit : 50,
-		file_queue_limit : 0,
-		custom_settings : {
-			progressTarget : "fsUploadProgress",
-			cancelButtonId : "btnCancel"
-		},
-		debug: false,
-
-		// The event handler functions are defined in handlers.js
-		file_queued_handler : fileQueued,
-		file_queue_error_handler : fileQueueError,
-		file_dialog_complete_handler : fileDialogComplete,
-		upload_start_handler : uploadStart,
-		upload_progress_handler : uploadProgress,
-		upload_error_handler : uploadError,
-		upload_success_handler : uploadSuccess,
-		upload_complete_handler : uploadComplete,
-		queue_complete_handler : queueComplete	// Queue plugin event
-	};
-
-  // init the file upload object
-	swfu = new SWFUpload(settings);
-	
-	
-	// append each new photo as they are uploaded to the list of photos via ajax
-	function uploadComplete(file) {
-	  $.get("<%= thumb_album_photos_path(@album) %>?filename=" + file.name, function(data){
-      $("#photos").append(data);
-      
-      // re-bind lightbox to the photos elements
-      bindLightBox();
-    });
-	}
-	
-	// Capture clicks within the photos list.
-	// This allows us to trap events from dynamically added ajax content within it.
-	$('#photos').click(function(e) {
-	  
-    if( $(e.target).is('a[@rel*=remove]') ) {
-      // remove link clicked, launch ajax remove
-      
-      // get the parent div so we can remove it on successful deletion
-  	  var thumb = $(e.target).parents("li");
-
-      // send the ajax delete request. This requires passing a _method=delete 
-      // param for the browser REST compatibility that rails supports.
-  	  $.post(e.target.href, {_method:"delete", authenticity_token:"<%= form_authenticity_token %>"}, function(data) {
-  	    // remove the thumbnail from the display on success
-        thumb.remove();
-        
-        // re-bind lightbox to the photos elements so we have a correct count
-        bindLightBox();
-  	  });
-    
-    } else if( $(e.target).is('a[@rel*=edit]') ) {
-      // edit link clicked, launch thickbox
-      tb_show(e.target.title, e.target.href);
-       
-    }
-    
-    // cancel the click
-    return false;
-    
-  });
-  
-	
-	// allows for photo sorting within an album by dragging them around.
-	// updates the order on the fly using ajax
-	// this is by far the trickiest JS in the app
-	$("#photos").sortable({ 
-      placeholder: "ui-selected",
-      opacity: 0.7,
-      update: function(e, ui) {
-        // determine the end position for the element that was moved
-        
-        // end order as an array
-        var end_order = $(this).sortable('serialize').replace(/photo\[\]\=/g, '').split('&');
-        console.log('End order: ' + end_order);
-        
-        // id of element that was moved (element is in the ui.helper object)
-        var moved_photo_id = ui.helper.attr('id').replace('photo_', ''); // parse photo_ from the id
-        console.log('Moved photo id: ' + moved_photo_id);
-        
-        // determine the end position of the moved element
-        var end_position = 0;
-        // loop through all order elements
-        for (var y=0; y<end_order.length; y++) {
-          // if the ids match, then we have the new index
-          if (end_order[y] === moved_photo_id) {
-            end_position = y;
-            break; // found it, bail
-          }
-        }
-        // increment it to match our backend which starts the list at 1 instead of 0
-        end_position++;
-        console.log('End position: ' + end_position);
-        
-        // ajax post to save the position change
-        // we're passing the parent album, the moved photo, and the new position of the photo
-        $.post('/albums/<%= @album.id %>/photos/' + moved_photo_id + '/update_position', {_method:"put", authenticity_token:"<%= form_authenticity_token %>", position:end_position}, function(data) {
-     	    
-          // re-bind lightbox so the photos elements are in the right order for next / prev buttons
-          bindLightBox();
-     	  });
-
-      },
-      revert: true
-  });
-  
 });
 </script>
 <h1>
   <%= h @album.title %>
 </h1>
-<p>
-  <%= link_to 'Edit', "#{edit_album_path(@album)}?width=315&height=340", :title => h(@album.title), :class => 'thickbox' %> | <%= link_to 'Remove', @album, :confirm => "Are you sure want to remove this album and all of it's photos?", :method => :delete %> | <%= link_to "Back", albums_path %>
-</p>
-<form id="form1" action="#" method="post" enctype="multipart/form-data">
-  <div>
-    <input type="button" value="Upload Photos" onclick="swfu.selectFiles()" style="font-size:8pt; border-width:1px; margin-bottom:10px; padding:2px 3px;" />
-    <input id="btnCancel" type="button" value="Cancel All Uploads" onclick="swfu.cancelQueue();" disabled="disabled" style="font-size:8pt; border-width:1px; margin-bottom:10px; padding:2px 3px;" />
-  </div>
-</form>
+<hr>
 <fieldset>
-  <legend>Photos - Drag photos to change their display order</legend>
+  <legend>Photos</legend>
   <ul id="photos">
-    <%= render :partial => "photos/photo", :collection => @album.photos %>
+    <%= render :partial => "/photos/photo", :collection => @album.visible_photos %>
   </ul>
 </fieldset>
-<div id="divStatus" style="display:none"></div>

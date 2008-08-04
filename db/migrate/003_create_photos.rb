@@ -11,7 +11,7 @@ class CreatePhotos < ActiveRecord::Migration
       # attachment_fu fields
       t.integer :parent_id, :size, :width, :height
       t.string :content_type, :filename, :thumbnail
-      t.boolean :visible, :null => false, :default => false
+      t.boolean :visible, :null => false, :default => true
       
       t.timestamps
     end

@@ -4,5 +4,6 @@ class Album < ActiveRecord::Base
   acts_as_list :scope => :user
   
   has_many :photos, :dependent => :destroy, :order => 'position'
+  has_many :visible_photos, :class_name => 'Photo', :conditions => 'visible = 1', :order => 'position'
   
 end

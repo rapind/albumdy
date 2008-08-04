@@ -1,5 +1,5 @@
 <% if user_logged_in? -%>
-  <%= link_to 'Manage Your Albums', manage_user_albums_path(current_user) %>
+  <%= link_to 'Manage Your Albums', manage_albums_path %>
   |
   <%=link_to 'Recent Users', users_path %>
   |
@@ -11,5 +11,5 @@
   |
   <%= link_to 'Login', "#{login_path}?height=250&width=320", :title => 'Let me in', :class => 'thickbox' %>
   |
-  <%= link_to "Get the Source", 'http://github.com' %>
+  <%= link_to "Get the Source", 'http://github.com/rapind/albumdy' %>
 <% end -%>

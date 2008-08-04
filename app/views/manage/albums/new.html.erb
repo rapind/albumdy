@@ -1,5 +1,5 @@
 <%= error_messages_for :album %>
 
-<% form_for(@album)  do |f| -%>
+<% form_for(@album, :url => manage_albums_path)  do |f| -%>
 	<%= render :partial => "form", :locals => {:f => f, :action => 'Create'} %>
 <% end -%>

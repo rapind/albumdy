@@ -13,7 +13,7 @@ class CreateUsers < ActiveRecord::Migration
       
       t.string :full_name, :limit => 64
       t.string :web_site_url, :limit => 255
-      t.boolean :visible, :null => false, :default => false
+      t.boolean :visible, :null => false, :default => true
       t.integer :albums_count, :null => false, :default => 0
       
       t.timestamps

@@ -5,7 +5,7 @@ class CreateAlbums < ActiveRecord::Migration
       t.integer :position, :null => false, :default => 1
       t.string :title, :limit => 255, :null => false
       t.text :description
-      t.boolean :visible, :null => false, :default => false
+      t.boolean :visible, :null => false, :default => true
       t.integer :photos_count, :null => false, :default => 0
       
       t.timestamps

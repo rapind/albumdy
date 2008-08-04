@@ -1,6 +1,3 @@
 <li class="photo_li" id="photo_<%= photo.id %>">
-  <%= link_to image_tag(photo.public_filename(:thumb), :size => '100x100', :alt => h(photo.title), :title => h(photo.title)), photo.public_filename, :title => h(photo.title), :rel => 'show' %>	
-  <div align="center">
-    <%= link_to 'Edit', "#{edit_album_photo_url(photo.album, photo)}?width=315&height=530", :title => h(photo.title), :rel => 'edit' %> | <%= link_to 'Remove', album_photo_path(photo.album, photo), :rel => 'remove' %>
-  </div>
+  <%= link_to image_tag(photo.public_filename(:thumb), :size => '100x100', :alt => h(photo.title), :title => h(photo.title)), photo.public_filename, :title => h(photo.title), :rel => 'show' %>
 </li>

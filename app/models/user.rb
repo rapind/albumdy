@@ -2,6 +2,7 @@ require 'digest/sha1'
 class User < ActiveRecord::Base
   
   has_many :albums, :dependent => :destroy, :order => 'position'
+  has_many :visible_albums, :class_name => 'Album', :conditions => 'visible = 1', :order => 'position'
   
   # Virtual attribute for the unencrypted password
   attr_accessor :password

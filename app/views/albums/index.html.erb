@@ -1,12 +1,5 @@
 <h1>Albums</h1>
 <hr>
-<h2>
-  <%= link_to 'Create New Album', "#{new_album_path}?width=315&height=340", :title => 'Create New Album', :class => 'thickbox' %>
-</h2>
-
-<fieldset>
-  <legend>Albums</legend>
-  <ul id="albums">
-    <%= render :partial => "album", :collection => @albums %>
-  </ul>
-</fieldset>
+<ul id="albums">
+  <%= render :partial => "album", :collection => @albums %>
+</ul>

@@ -1,6 +1,6 @@
 class UsersController < ResourceController::Base
   
-  actions :index, :show, :new, :create, :activate, :forgot_password, :reset_password
+  actions :index, :new, :create, :activate, :forget_password, :reset_password
   
   # registration
   def new
@@ -86,12 +86,12 @@ class UsersController < ResourceController::Base
   def find_user
     @user = User.find(params[:id])
   end
-    
+  
   private #--------------
 
-  # Defining the collection explicitly for paging and to only return visibles
+  # Defining the collection explicitly for paging and limit to visible users
   def collection
-    @collection ||= end_of_association_chain.paginate :conditions => 'visible = true', :page => params[:page], :per_page => 10, :order => 'created_at DESC'
+    @collection ||= end_of_association_chain.paginate :conditions => 'visible = 1', :page => params[:page], :per_page => 10, :order => 'created_at DESC'
   end
   
 end

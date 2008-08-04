@@ -1,25 +1,26 @@
 ActionController::Routing::Routes.draw do |map|
 
+  # admin section to manage all users, albums, and photos.
+  # simple management operations means we don't need deeply nested routes.
+  map.namespace :admin do |admin|
+    admin.resources :users, :has_many => :albums
+    admin.resources :albums, :has_many => :photos
+    admin.resources :photos
+  end
+  
   # management section where user's manage their albums and photos
   map.namespace :manage do |manage|
-    manage.resources :users do |user|
-      user.resources :albums do |album|
-        album.resources :photos, :collection => { :thumb => :get }, :member => { :update_position => :put }
-      end
+    manage.resources :users
+    manage.resources :albums do |album|
+      album.resources :photos, :controller => 'albums/photos', :collection => { :thumb => :get }, :member => { :update_position => :put }
     end
   end
   
-  # public view of users, their albums and the photos within
-  map.resources :users do |user|
-    user.resources :albums do |album|
-      album.resources :photos
-    end
-  end
+  # public view of users and the albums they own
+  map.resources :users, :has_many => :albums
   
-  # public view of albums and the photos within
-  map.resources :albums do |album|
-    album.resources :photos
-  end
+  # public view of albums
+  map.resources :albums
   
   # public view of photos
   map.resources :photos
