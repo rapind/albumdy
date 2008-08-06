@@ -1,5 +1,7 @@
 <h1>Albums</h1>
 <hr>
 <ul id="albums">
-  <%= render :partial => "album", :collection => @albums %>
+  <%= render :partial => "album", :collection => @collection %>
 </ul>
+<hr>
+<%= will_paginate @collection %>

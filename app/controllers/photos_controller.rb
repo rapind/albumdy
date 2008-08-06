@@ -9,7 +9,7 @@ class PhotosController < ResourceController::Base
 
   # Defining the collection explicitly for paging and limit to visible photos
   def collection
-    @collection ||= end_of_association_chain.paginate :conditions => 'visible = 1', :page => params[:page], :per_page => 10, :order => 'created_at DESC'
+    @collection ||= end_of_association_chain.paginate :conditions => 'visible = 1 and thumbnail IS NULL', :page => params[:page], :per_page => 21, :order => 'created_at DESC'
   end
   
 end

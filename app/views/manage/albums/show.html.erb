@@ -17,14 +17,13 @@ $(function() {
   var settings = {
 		flash_url : "/assets/swfupload_f9.swf",
 		upload_url: "<%= manage_album_photos_path(@album) %>",
-		file_size_limit : "50 MB",
+		file_size_limit : "10 MB",
 		file_types : "*.*",
 		file_types_description : "All Images",
-		file_upload_limit : 50,
+		file_upload_limit : 10,
 		file_queue_limit : 0,
 		custom_settings : {
-			progressTarget : "fsUploadProgress",
-			cancelButtonId : "btnCancel"
+			cancelButtonId : "upload_button" // required, so we're just pointing to the upload button.
 		},
 		debug: false,
 
@@ -43,7 +42,12 @@ $(function() {
   // init the file upload object
 	swfu = new SWFUpload(settings);
 	
-	
+	// capture the upload button click and launch SWFUpload
+	$('#upload_button').click(function(e) {
+    swfu.selectFiles();
+    return false;
+  });
+  
 	// append each new photo as they are uploaded to the list of photos via ajax
 	function uploadComplete(file) {
 	  $.get("<%= thumb_manage_album_photos_path(@album) %>?filename=" + file.name, function(data){
@@ -131,18 +135,21 @@ $(function() {
   
 });
 </script>
-<h3>
-  <%= h @album.title %>
-</h3>
-<hr>
-<p>
+<div class="first span-18">
+  <h1>
+    <%= h @album.title %>
+  </h1>
+</div>
+<div class="last" align="right">
   <%= link_to 'Edit', "#{edit_manage_album_path(@album)}?width=315&height=340", :title => h(@album.title), :class => 'thickbox' %> | <%= link_to 'Remove', manage_album_path(@album), :confirm => "Are you sure want to remove this album and all of it's photos?", :method => :delete %> | <%= link_to "Back", manage_albums_path %>
-</p>
+</div>
+<hr>
+
 <form id="form1" action="#" method="post" enctype="multipart/form-data">
-  <div>
-    <input type="button" value="Upload Photos" onclick="swfu.selectFiles()" style="font-size:8pt; border-width:1px; margin-bottom:10px; padding:2px 3px;" />
-    <input id="btnCancel" type="button" value="Cancel All Uploads" onclick="swfu.cancelQueue();" disabled="disabled" style="font-size:8pt; border-width:1px; margin-bottom:10px; padding:2px 3px;" />
-  </div>
+  <button type="submit" class="button positive" id="upload_button">
+    <%= image_tag 'icons/key.png', :id => 'btnCancel' %> Upload Photos
+  </button>
+  <hr class="space">    
 </form>
 <fieldset>
   <legend>Photos - Drag photos to change their display order</legend>

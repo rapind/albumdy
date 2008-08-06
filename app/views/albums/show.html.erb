@@ -11,9 +11,6 @@ $(function() {
   <%= h @album.title %>
 </h1>
 <hr>
-<fieldset>
-  <legend>Photos</legend>
-  <ul id="photos">
-    <%= render :partial => "/photos/photo", :collection => @album.visible_photos %>
-  </ul>
-</fieldset>
+<ul id="photos">
+  <%= render :partial => "/photos/photo", :collection => @album.visible_photos %>
+</ul>

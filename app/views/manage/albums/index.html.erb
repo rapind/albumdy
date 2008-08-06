@@ -4,9 +4,6 @@
   <%= image_tag 'icons/key.png' %> Create New Album
 </a>
 <hr class="space">
-<fieldset>
-  <legend>Albums</legend>
-  <ul id="albums">
-    <%= render :partial => "album", :collection => @albums %>
-  </ul>
-</fieldset>
+<ul id="albums">
+  <%= render :partial => "album", :collection => @albums %>
+</ul>

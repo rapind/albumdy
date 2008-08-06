@@ -1,23 +1,42 @@
-/* -- Basic Overrides ------------------------------- */
+/* color scheme, dark to light
+/*
+1. #005193
+2. #124d7b
+3. #2f4a69
+4. #384556
+5. #33363b
+*/
+
+/* -- Blueprint Overrides ------------------------------- */
+h1 {
+  font-size:2em;
+  line-height:1;
+  margin-bottom:0.5em;
+}
+h2 {
+  font-size:1.7em;
+  margin-bottom:0.75em;
+}
+
 a {
-	color: #2d4c6a;
+	color: #3a5a7f;
 	text-decoration: none;
 	}
 a:visited {
-  color: #2d4c6a;
+  color: #3a5a7f;
   text-decoration:none; 
 }
 a:active {
-	color: #147;
-	background: #def;
+	color: #2f4a69;
+	background: #cad3e3;
 }
 a:hover {
-	color: #147;
-	background: #def;
+	color: #2f4a69;
+	background: #cad3e3;
 }
 
 hr {
-  background-color: #3d5c7a;
+  background-color: #cad3e3;
 }
 
 legend {
@@ -32,54 +51,54 @@ textarea {
 
 /* -- Header ------------------------------- */
 .container {
-  background-color: #e5ecf9;
+  background-color: #cad3e3;
 }
 
 .header {
 	color: white;
-	background-color: #213242;
+	background-color: #384455;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	font-weight: bold;
 }
 .header a:link {
-  color: #ddd;
+  color: #fff;
   padding:7px;
 }
 .header a:visited {
-  color: #ddd;
+  color: #fff;
   padding:7px;
 }
 .header a:active {
   color: #fff;
 }
 .header a:hover {
-  color: white;
-  background:#3d5c7a;
+  color: #fff;
+  background:#4b5c71;
 }
 
 /* -- Navigation ------------------------------- */
 .navigation {
   color: white;
   font-weight: bold;
-	background-color: #3d5c7a;
+	background-color: #4b5c71;
 	padding-top: 10px;
 	padding-bottom: 11px;
 }
 .navigation a:link {
-  color: #ddd;
+  color: #fff;
   padding:12px;
 }
 .navigation a:visited {
-  color: #ddd;
+  color: #fff;
   padding:12px;
 }
 .navigation a:active {
   color: #fff;
 }
 .navigation a:hover {
-  color: white;
-  background:#213242;
+  color: #fff;
+  background:#384455;
 }
 
 /* -- Flashes ------------------------------- */

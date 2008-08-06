@@ -12,5 +12,7 @@ $(function() {
 </h1>
 <hr>
 <ul id="photos">
-  <%= render :partial => "photo", :collection => @photos %>
+  <%= render :partial => "photo", :collection => @collection %>
 </ul>
+<hr>
+<%= will_paginate @collection %>
