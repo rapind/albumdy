@@ -3,9 +3,11 @@
 <h3>
   Yet another open source photo gallery application.
 </h3>
-<p>
-  <%= link_to 'Login', login_path %> with username: <b>demo</b> password: <b>demo</b> or <%= link_to 'Signup', signup_path %> your own account.
-</p>
+<% if !user_logged_in? -%>
+  <p>
+    <%= link_to 'Login', login_path %> with username: <b>demo</b> password: <b>demo</b> or <%= link_to 'Signup', signup_path %> your own account.
+  </p>
+<% end -%>
 <p>
   There are many existing photo gallery apps around, but none I could find demonstrating the following key technologies:
   <ul>
