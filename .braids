@@ -26,20 +26,6 @@ vendor/plugins/attachment_fu:
   branch: master
   squash: true
   remote: git://github.com/technoweenie/attachment_fu.git
-vendor/plugins/permalink_fu: 
-  local_branch: braid/git/vendor/plugins/permalink-fu/master
-  type: git
-  revision: 
-  branch: master
-  squash: true
-  remote: git://github.com/technoweenie/permalink_fu.git
-vendor/plugins/acts_as_list: 
-  local_branch: braid/git/vendor/plugins/acts-as-list/master
-  type: git
-  revision: 
-  branch: master
-  squash: true
-  remote: git://github.com/rails/acts_as_list.git
 vendor/plugins/will_paginate: 
   local_branch: braid/git/vendor/plugins/will-paginate/master
   type: git
@@ -47,3 +33,10 @@ vendor/plugins/will_paginate:
   branch: master
   squash: true
   remote: git://github.com/mislav/will_paginate.git
+vendor/plugins/acts_as_list: 
+  local_branch: braid/git/vendor/plugins/acts-as-list/master
+  type: git
+  revision: 
+  branch: master
+  squash: true
+  remote: git://github.com/rails/acts_as_list.git
