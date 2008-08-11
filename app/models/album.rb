@@ -6,6 +6,6 @@ class Album < ActiveRecord::Base
   has_many :photos, :dependent => :destroy, :order => 'position'
   has_many :visible_photos, :class_name => 'Photo', :conditions => 'visible = 1', :order => 'position'
   
-  has_friendly_id :title
+  has_friendly_id :title, :use_slug => true, :strip_diacritics => true
   
 end
