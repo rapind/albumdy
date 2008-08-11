@@ -1,0 +1,59 @@
+/* Basics */
+body {
+  background-color: #333;
+}
+h1 {
+  color:#638a8c;
+}
+h3 {
+  color:#f0542b;
+}
+.container {
+  background-color: #fff;
+}
+
+a, a:visited {
+  color: #f0542b;
+}
+a:active, a:hover {
+  color: #638a8c;
+	background: #dff6f1;
+}
+hr {
+  background-color: #88c6cf;
+}
+fieldset {
+  border-color:#88c6cf;
+  color:#638a8c;
+}
+.box {
+  background:#dff6f1;
+}
+#header {
+  background: #dff6f1;
+  border-bottom: 1px #88c6cf solid;
+}
+
+#footer {
+  border-top: 1px #88c6cf solid;
+}
+
+/* Thickbox Window */
+#TB_window {
+	border: 4px solid #638a8c;
+}
+#TB_title {
+	background-color:#dff6f1;
+}
+
+/* Positive Buttons */
+body .positive {
+  color:#638a8c;
+}
+a.positive:hover, button.positive:hover {
+  color:#638a8c;
+}
+a.positive:active {
+  background-color:#638a8c;
+  border:1px solid #638a8c;
+}

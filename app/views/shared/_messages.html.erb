@@ -1,0 +1,17 @@
+<!-- status messages -->
+<div class="span-24 first last">
+  <noscript>
+    <div id="flash" class="flash_alert" >
+      <span class="message">Please ensure you have javascript enabled in your browser.</span>
+    </div>
+  </noscript>
+  <% flash.each do |key,value| %>
+		<div id="flash" class="flash_<%= key %>" >
+		  <% if key.to_s == 'alert' -%>
+			  <span class="message">Woops: <%= value %></span>
+			<% else -%>
+			  <span class="message">Notice: <%= value %></span>
+			<% end -%>
+		</div>
+	<% end -%>
+</div>

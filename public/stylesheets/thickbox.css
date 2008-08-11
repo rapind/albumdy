@@ -16,11 +16,14 @@
 	color:#666666;
 }
 
+/*
+We're going to inherit these from the parent styles instead
 #TB_window a:link {color: #666666;}
 #TB_window a:visited {color: #666666;}
 #TB_window a:hover {color: #000;}
 #TB_window a:active {color: #666666;}
 #TB_window a:focus{color: #666666;}
+*/
 
 /* ----------------------------------------------------------------------------------------------------------------*/
 /* ---------->>> thickbox settings <<<-----------------------------------------------------------------------------*/

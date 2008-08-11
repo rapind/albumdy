@@ -1,46 +1,34 @@
-<h3>Membership Singup</h3>
-<small>Yeah yeah, we know. Yet another signup form. Go ahead and use your beermail account. It's cool. You can use the demo / demo account to login if you just want to check it out. Passwords are encrypted using hash and salt, and we will never, ever share your information with anyone.</small>
-<hr>
+<h3>Join Now!</h3>
+<h4>
+  If this is your first time here, you can sign up for a new account below, or use the existing demo / demo account to sign in. Once signed in you can upload and manage your own photo albums and browse other user's albums.
+</h4><br />
 
 <%= error_messages_for :user %>
-
 <% form_for :user, :url => users_path  do |f| -%>
 
   <div class="span-11 first">
-    
     <p>
-  	  <%= f.label(:login) %>
-  	  &nbsp; <small>( Unique username. I.e. "jdoe" )</small><br />
-  	  <%= f.text_field :login, :class => 'text' %>
+  	  <%= f.text_field :login, :class => 'text' %> &nbsp; <label for="user_login">Username</label>
   	</p>
   	<p>
-  	  <%= f.label(:email) %>
-  	  &nbsp; <small>( Must be a valid email address or you won't get in )</small><br />
-  	  <%= f.text_field :email, :class => 'text' %>
+  	  <%= f.text_field :email, :class => 'text' %> &nbsp; <%= f.label(:email) %>
   	</p>
-  
   </div>
   
   <div class="span-11 last">
-    
   	<p>
-  	  <%= f.label(:password) %>
-  	  &nbsp; <small>( Enter a password between 4 and 40 characters in length )</small><br />
-  	  <%= f.password_field :password, :class => 'text' %>
+  	  <%= f.password_field :password, :class => 'text' %> &nbsp; <%= f.label(:password) %>
   	</p>
   	<p>
-  	  <%= f.label(:confirm_password) %>
-  	  &nbsp; <small>( Enter the same password as above )</small><br />
-  	  <%= f.password_field :password_confirmation, :class => 'text' %>
+  	  <%= f.password_field :password_confirmation, :class => 'text' %> &nbsp; <%= f.label(:confirm_password) %>
   	</p>
-
   </div>
   
   <hr class="space">
   
   <p class="buttons">
     <button type="submit" class="button positive">
-      <%= image_tag 'icons/key.png', :alt => '' %> &nbsp;Sign Up &raquo;
+      <%= image_tag 'icons/key.png', :alt => '' %> &nbsp;Join Now &raquo;
     </button>
   </p>
 

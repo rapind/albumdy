@@ -7,10 +7,6 @@ $(function() {
 	
 });
 </script>
-<h1>
-  <%= h @album.title %>
-</h1>
-<hr>
 <ul id="photos">
   <%= render :partial => "/photos/photo", :collection => @album.visible_photos %>
 </ul>

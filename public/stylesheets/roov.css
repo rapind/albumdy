@@ -1,0 +1,1074 @@
+/* @override http://localhost:3000/stylesheets/forms.css */
+form.general, 
+div.general {
+  padding: 0 15px;
+  color: #333;
+  position: relative;
+}
+form.roov {
+  padding: 0;
+}
+form div.section {
+  border-bottom: 1px #e7e7e7 solid;
+  display: block;
+  padding: 0;
+  clear: both;
+}
+form.general div.no-title {
+  margin-top: 15px;
+}
+form.general div.no-border {
+  border-bottom-width: 0;
+}
+form.general h2,
+div.general h2 {
+  color: #c2242e;
+  font-size: 120%;
+}
+form.general h3 {
+  margin: 15px 0;
+  padding-left: 210px;
+}
+form.roov h3 {
+  padding-left: 0;
+}
+form.general p,
+div.general p {
+  font-size: 12px;
+  padding-bottom: 8px;
+}
+#import-addresses-form p { 
+   white-space: nowrap;
+}
+form.general p a,
+div.general p a{
+  color: #333;
+}
+form.general p a:hover,
+div.general p a:hover{
+  text-decoration: none;
+}
+form.roov p {
+  padding-bottom: 15px;
+}
+form.general em,
+form.general span.em {
+  color: #999;
+  font-size: 11px;
+  font-style: italic;
+  display: inline;
+  float: none;
+}
+form.general .required{
+  color: #c2242e;
+}
+form.general p label,
+form.general p strong.label {
+  display: block;
+  float: left;
+  font-family: "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  line-height: 22px;
+  padding-right: 10px;
+  text-align: right;
+  width: 200px;
+}
+#import-addresses-form p label { 
+   padding: 0;
+}
+form.email-alerts p {
+  margin-bottom: 0;
+}
+form.email-alerts p label {
+  float: none;
+  display: inline;
+  font-weight: normal;
+}
+form.general p input {
+  vertical-align: middle;
+}
+form.general p input.text {
+  padding: 3px 4px;
+  width: 400px;
+}
+form.profile p input.text {
+  margin-right: 5px;
+  padding: 3px 4px;
+  width: 230px;
+}
+form.general p input.default {
+  color: #ccc;
+}
+form.general p input.checkbox,
+form.general p input.radio {
+  margin-right: 5px;
+}
+form.general p textarea {
+  height: 100px;
+  padding: 3px 4px;
+  width: 400px;
+}
+form.general span.pretty-datetime-select input {
+  width: auto;
+}
+form.general span.pretty-datetime-select select.meridiem {
+  margin-left: 5px;
+}
+form.general p.no-break {
+  padding-bottom: 0;
+}
+form.general p.no-label {
+  padding-left: 210px;
+}
+form.general p.no-label label {
+  display: inline;
+  float: none;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  text-align: left;
+  width: auto;
+}
+form.general p.no-label select {
+  max-width: 200px;
+  text-overflow: ellipsis;
+}
+form.general p.boxes span.buttons {
+  display: block;
+  padding-left: 210px;
+}
+form.general p.boxes span.inline {
+  display: inline;
+  padding-left: 0;
+}
+form.general p.boxes span.inline label {
+  display: inline;
+  line-height: 25px;
+  padding-right: 10px;
+}
+form.general p.boxes span.inline label input {
+  display: inline;
+  margin: -3px 2px 0 0;
+  vertical-align: middle;
+}
+form.general p.boxes label {
+  float: none;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  text-align: left;
+  width: auto;
+  display: block;
+}
+form#new_gathering p.boxes label input{
+  margin: 0;
+}
+form.general p.buttons {
+  padding-left: 210px;
+}
+form.general p.no-spacing {
+  padding-left: 0;
+}
+form.general p.buttons input {
+  vertical-align: middle;
+}
+form.general p.buttons em {
+  padding-left: 15px;
+}
+form.general p.full-span {
+  padding-left: 0;
+}
+form.general p.full-span label {
+  float: none;
+  text-align: left;
+}
+form.general p.full-span input.text,
+form.general p.full-span textarea {
+  width: 614px;
+}
+fieldset {
+  border: 0;
+  border-top: 1px #ddd solid;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+fieldset legend {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 70%;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding-right: 1em;
+  padding-top: 0;
+  text-transform: uppercase;
+  color: #333;
+  margin-bottom: 20px;
+}
+fieldset legend em {
+  font-size: 90%;
+  font-weight: normal;
+  letter-spacing: 0;
+  text-transform: none;
+}
+fieldset.no-legend {
+  border-top: 0;
+  padding-top: 0;
+}
+
+form p span.multiple {
+  padding: 3px 0;
+}
+form p span.multiple input.text {
+  width: 150px;
+}
+
+form p span.multiple label,
+form p.buttons_only label,
+form p.lone_checkbox label {
+  display: inline;
+  float: none;
+  font-weight: normal;
+  padding: 0;
+  text-align: left;
+}
+form.profile,
+div.profile,
+#new-message {
+  margin-top: 15px;
+}
+form.general tr.even {
+  background-color: #f0f0f0;
+}
+form.general td {
+  font-size: 12px;
+  width: 175px;
+}
+form.general td input {
+  margin-right: 3px;
+}
+/* @group New Roov Form */
+.new-roov.section{
+  padding: 0 40px 20px 40px;
+  border-bottom: 1px solid #E2E2E2;
+}
+/* @group My Group */
+.roov-explanation h4{
+  font-size: 16px;
+  line-height: 38px;
+  color: #111;
+  font-family: "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+  clear: left;
+}
+.roov-explanation h4 span{
+  font-weight: bold;
+  color: #878A8A;
+  font-size: 24px;
+  float: left;
+  margin-right: 12px;
+}
+.roov-explanation ul{
+  margin: 0 0 0 50px;
+  font-size: 12px;
+  color: #878A8A;
+}
+.roov-explanation ul li {
+	font-size: 16px;
+	line-height: 24px;
+}
+.roov-explanation ul li span{
+  color: #CD001C;
+}
+.roov-explanation.buttons h4{
+  float: left;
+}
+.roov-explanation.buttons input, .roov-explanation.buttons button{
+	float: left;
+	margin: 4px 10px 0;
+}
+.roov-explanation.buttons em{
+	float: left;
+	height: 38px;
+	line-height: 38px;
+}
+/* @end */
+form.general#new_roov .narrow p label,
+form.general#new_roov .narrow p strong.label  {
+	width: 100px;
+	line-height: 33px;
+}
+form.general#new_roov p.buttons{
+  padding-left: 100px;
+}
+form#new_roov .section p{
+  clear: both;
+}
+form#new_roov p span.multiple{
+  float: left;
+  display: block;
+  clear: right;
+  margin: 0 0 10px 0;
+}
+form#new_roov p span.multiple span{
+  float: left;
+  margin: 0 10px 0 1px;
+}
+form#new_roov p span.multiple span input{
+  display: block;
+}
+form.general#new_roov input#roov_name_subject{
+  width: 225px;
+}
+/* @group Items */
+.new-roov div.item{
+  float: left;
+  width: 360px;
+  padding: 10px;
+}
+.new-roov div.item p{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #aaa;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.new-roov div.item p a {
+  border-bottom: 1px #f9f9f9 solid;
+  color: #aaa;
+  text-decoration: underline;
+  margin-right: 10px;
+}
+.new-roov div.item p a:hover {
+  border-bottom-color: #999;
+  color: #999;
+  text-decoration: none;
+}
+.new-roov div.item h4 a {
+  color: #000;
+  text-decoration: none;
+}
+.new-roov div.item h4 {
+  font-size: 18px !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.new-roov div.roov h4,
+.new-roov div.roov h4 a {
+  color: #546d6b !important;
+}
+
+.new-roov div.item.odd {
+  padding-right: 15px !important;
+}
+
+.new-roov div.item:hover {
+  background-color: #88c3c0 !important;
+}
+.new-roov div.item p a:hover {
+  border-bottom-color: #999;
+  color: #999;
+  text-decoration: none;
+}
+.new-roov div.item:hover p,
+.new-roov div.item:hover p a,
+.new-roov div.item:hover h4,
+.new-roov div.item:hover h4 a{
+  color: #fff !important;
+}
+
+/* @end */
+/* @end */
+/* @group Church List */
+form.general p.church-list label {
+  color: #999;
+  display: block;
+  font-size: 11px;
+  margin: 0 0 5px 160px;
+  width: 500px;
+}
+form.general p.church-list strong.label{
+  width: 150px;
+}
+form.general p.church-list label.selected {
+  background-color: #fef3b3;
+}
+form.general p.church-list label input {
+  margin: 3px 5px 0 5px;
+  vertical-align: top;
+}
+*html form.general p.church-list label input{
+  margin: 0;
+}
+form.general p.church-list label span.church-name {
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+}
+form.general p.no-church {
+  background-color: #f9f9f9;
+  border: 1px #e7e7e7 solid;
+  color: #1f1703;
+  float: left;
+  margin-left: 160px;
+  padding: 15px;
+  width: 500px;
+  display: inline;
+}
+/* @end */
+img.indicator{
+  vertical-align: middle;
+}
+.disabled{
+  display:none;
+}
+
+/* Flexible buttons with the sliding door technique */
+/* @group Buttons */
+
+button {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0 20px 0 0;
+  margin: 0;
+  text-align: center; 
+  color: #366;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  height: 29px;
+}
+button span { 
+  position: relative;
+  display: block;
+  white-space: nowrap;
+  padding: 0 0 0 20px;
+  margin: 0 0 0 -2px;
+  height: 29px; 
+  line-height: 29px;
+}
+button span { 
+  height:29px; 
+  line-height:29px;
+}
+
+/* Button Backgrounds */
+button {             background: url(/images/buttons/rounded.png) top    right no-repeat; }
+button span {        background: url(/images/buttons/rounded.png) top    left  no-repeat; }
+button:focus {       background: url(/images/buttons/rounded.png) center right no-repeat; }
+button:focus span {  background: url(/images/buttons/rounded.png) center left  no-repeat; }
+button:hover {       background: url(/images/buttons/rounded.png) center right no-repeat; }
+button:hover span {  background: url(/images/buttons/rounded.png) center left  no-repeat; }
+button:active {      background: url(/images/buttons/rounded.png) bottom right no-repeat; }
+button:active span { background: url(/images/buttons/rounded.png) bottom left  no-repeat; }
+
+/*button:focus::-moz-focus-inner { border-color: transparent ! important; }*/
+button::-moz-focus-inner { border: none;}
+
+
+/* @override http://localhost:3000/stylesheets/overlay.css */
+div.overlay {
+  float: left;
+  position: absolute;
+  z-index: 999;
+}
+div.overlay.top {
+  background: transparent url(/images/overlay/arrow_down.png) center bottom no-repeat;
+  padding-bottom: 28px;
+}
+/*** IE 6 hack for use gifs and not transparent pngs ***/
+* html div.overlay.top {
+  background-image: url(/images/overlay/arrow_down.gif);
+}
+div.overlay.bottom {
+  background: transparent url(/images/overlay/arrow_up.png) center top no-repeat;
+  padding-top: 28px;
+}
+/*** IE 6 hack for use gifs and not transparent pngs ***/
+* html div.overlay.bottom {
+  background-image: url(/images/overlay/arrow_up.gif);
+}
+div.overlay.left {
+  background: transparent url(/images/overlay/arrow_right.png) right center no-repeat;
+  padding-right: 28px;
+}
+/*** IE 6 hack for use gifs and not transparent pngs ***/
+* html div.overlay.left {
+  background-image: url(/images/overlay/arrow_right.gif);
+}
+div.overlay.right {
+  background: transparent url(/images/overlay/arrow_left.png) left center no-repeat;
+  padding-left: 28px;
+}
+/*** IE 6 hack for use gifs and not transparent pngs ***/
+* html div.overlay.right {
+  background-image: url(/images/overlay/arrow_left.gif);
+}
+div.overlay div.inner {
+  background: transparent url(/images/overlay/bg_border.png) left top repeat;
+  padding: 8px;
+}
+div.overlay div.inner div.content {
+  background-color: #ecfaf7;
+  border: 1px #88c6cf solid;
+  padding: 15px;
+}
+div.overlay div.inner div.content div.close-button {
+  background: transparent url(/images/overlay/close.png) left top no-repeat;
+  cursor:pointer; cursor:hand;
+  float: right;
+  height: 14px;
+  position: relative;
+  right: -9px;
+  top: -10px;
+  width: 14px;
+}
+div.overlay div.inner div.content h3 {
+  color: #c2242e;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 120%;
+  margin-bottom: 3px;
+}
+div.overlay div.inner div.content p {
+  font-family: "Lucida Grande", Verdana, sans-serif;
+  font-size: 80%;
+  line-height: 1.4em;
+}
+
+div.user-overlay {
+  width: 420px;
+}
+div.password-overlay {
+  width: 325px;
+}
+div.overlay div.inner div.content div.user div.add-friend,
+div.overlay div.inner div.content div.user div.send-message {
+  background: transparent left center no-repeat;
+  float: left;
+  font-size: 12px;
+  margin-left: -500px;
+  left: 650px;
+  padding-left: 13px;
+  position: relative;
+  margin-top: -500px;
+  width: 220px;
+}
+div.overlay div.inner div.content div.user div.add-friend a,
+div.overlay div.inner div.content div.user div.send-message a {
+  color: #404040;
+}
+div.overlay div.inner div.content div.user div.add-friend a:hover,
+div.overlay div.inner div.content div.user div.send-message a:hover {
+  text-decoration: none;
+}
+div.overlay div.inner div.content div.user div.add-friend {
+  background-image: url(/images/overlay/icn_star.png);
+  top: 585px;
+}
+div.overlay div.inner div.content div.user div.add-friend em {
+  color: #999;
+}
+div.overlay div.inner div.content div.user div.send-message {
+  background-image: url(/images/overlay/icn_mail.png);
+  top: 605px;
+}
+div.overlay div.inner div.content div.user div.profile-photo {
+  background: #fff url(/images/layout/profile_photo_medium.png) left top no-repeat;
+  border: 5px #fff solid;
+  float: left;
+  height: 125px;
+  margin-right: 15px;
+  padding: 1px 0 0 1px;
+  width: 125px;
+}
+div.overlay div.user{
+  position: relative;
+  height: 135px;
+}
+div.overlay div.inner div.content div.user h3 {
+  padding-top: 5px;
+}
+div.overlay div.inner div.content div.user h4 {
+  color: #404040;
+  font-family: "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+div.overlay div.inner div.content div.user h4 a {
+  color: #404040;
+  text-decoration: none;
+}
+div.overlay div.inner div.content div.user h4 a:hover {
+  text-decoration: underline;
+}
+div.overlay div.inner div.content div.user h4.serif {
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-weight: normal;
+  margin-top: 3px;
+}
+div.date-picker-overlay {
+  width: 300px;
+}
+
+/* @override http://localhost:3000/stylesheets/roov-errors.css */
+#errors {
+  background-color: #c2242e;
+  border-bottom: 5px #ac0003 solid;
+  color: #fff;
+  padding: 15px;
+  position: relative;
+}
+#errors h3,
+#left #errors h3 {
+  color: #fff !important;
+  font-size: 14px !important;
+  padding-bottom: 5px !important;
+  margin: 0 !important;
+/*  text-shadow: 0px 1px 1px #991c23;*/
+}
+#errors ul {
+  font-size: 12px;
+  padding-left: 20px;
+}
+#errors ul li {
+  line-height: 20px;
+}
+#errors ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#notice{
+  background-color: #419A26;
+  border-bottom: 5px #1A690A solid;
+  color: #fff;
+  padding: 15px;
+  position: relative;
+}
+#notice p{
+  font-size: 14px;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* @override 
+	http://localhost:3000/stylesheets/external.css?1205198541
+	http://localhost:3000/stylesheets/external.css
+*/
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  background: #343434 url(/images/external/bg_body.png) center top repeat;
+}
+#body {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+  margin: 0 auto;
+  width: 990px;
+}
+input, textarea {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+  font-size: 13px;
+}
+strong, em, .strong, .emphasized {
+  font-family: "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+}
+.clear {
+  clear: both;
+  display: block;
+}
+
+#logo {
+  height: 162px;
+  float: right;
+  left: 56px;
+  margin-top: 50px;
+  overflow: hidden;
+  position: relative;
+  width: 69px;
+  z-index: 11;
+}
+#logo a {
+  background: transparent url(/images/layout/roov_logo.png) right top no-repeat;
+  display: block;
+  height: 0;
+  margin-left: -31px;
+  overflow: hidden;
+  padding-top: 162px;
+  width: 100px;
+}
+
+#content p.notice {
+  background-color: #c2242e;
+  color: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  margin-top: 25px;
+  padding: 10px 5px;
+  text-align: center;
+}
+#content p.notice a {
+  color: #fff;
+}
+
+#bottom {
+  background: transparent url(/images/external/bg_bottom.png) center bottom no-repeat;
+  margin-top: 40px;
+  padding-bottom: 65px;
+}
+* html #bottom {
+  padding-bottom: 0;
+}
+*:first-child+html #bottom {
+  padding-bottom: 0;
+}
+*:first-child+html #body { padding-bottom: 30px; }
+#container {
+  background: #fff url(/images/external/bg_container.png) left top repeat-y;
+}
+#top {
+  background: transparent url(/images/external/bg_top.png) center top no-repeat;
+  padding: 31px 13px 0 13px;
+  position: relative;
+}
+
+#header {
+  background: #dff6f1 url(/images/external/bg_header.png) left bottom repeat-x;
+  border-bottom: 1px #88c6cf solid;
+  padding: 20px 125px 20px 50px;
+}
+#header h1 {
+  color: #638a8c;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 55px;
+  letter-spacing: -1px;
+  margin-bottom: 5px;
+  text-shadow: 2px 1px 1px #e9f8f6, -2px -1px 1px #333;
+}
+#header h2 {
+  color: #1f1703;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 23px;
+  font-weight: normal;
+}
+
+#content {
+  padding: 20px 50px;
+}
+
+#content h3 {
+  color: #c2242e;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+#content h4 {
+  color: #404040;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 16px;
+  margin-top: -20px;
+  margin-bottom: 30px;
+}
+#content h4 strong {
+  font-size: 14px;
+}
+#content p {
+  color: #404040;
+  font-size: 12px;
+  line-height: 16px;
+  margin-bottom: 5px;
+}
+#content p strong.large {
+  font-size: 14px;
+}
+#content p strong.highlight {
+  background-color: #fef3b3;
+  padding: 0 2px;
+}
+#content p a {
+  color: #404040;
+}
+#content p a:hover {
+  text-decoration: none;
+}
+#content p.separated {
+  margin-top: 30px;
+}
+#content p.sign-up {
+  background: transparent url(/images/external/or.png) center top no-repeat;
+  padding: 30px 0 0 0;
+  float: left;
+  width: 100%;
+  text-align: center;
+  
+}
+#content p.sign-up a {
+  background: transparent url(/images/buttons/join_roov.png) left top no-repeat;
+  clear: both;
+  display: inline;
+  float: left;
+  margin-left: 90px;
+  height: 52px;
+  outline: 0;
+  text-indent: -9999px;
+  width: 166px;
+}
+#content p.learn-more {
+  clear: left;
+  padding-top: 10px;
+  text-align: center;
+  width: 166px;
+}
+#content p.learn-more a {
+  color: #979a9c;
+}
+#stupid_image {
+  margin-right: 20px;
+}
+#footer {
+  border-top: 1px #e9e9e9 solid;
+  color: #989898;
+  font-size: 11px;
+  margin: 15px 50px 0 50px;
+  padding-bottom: 20px;
+  padding-top: 10px;
+}
+#footer a {
+  color: #989898;
+}
+#footer a:hover {
+  text-decoration: none;
+}
+#copyright {
+  padding-right: 10px;
+}
+
+form.general {
+  margin: 0 0 -35px 0;
+  padding: 0;
+}
+form.top {
+  margin-bottom: 0;
+}
+form.general p input.text {
+  width: 300px;
+}
+div.zip_code form.general p input.text { 
+  width: 250px; 
+}
+form.general p input.with-default-text {
+  color: #999;
+}
+form.general p label,
+form.general p strong.label {
+  width: 150px;
+}
+div.zip_code form.general p label{ 
+  text-align: left;
+  width: 140px;
+  padding: 0; 
+}
+
+/* IE 6 wants to move this element over a few pixels. Setting the position to absolute removes it from the page flow and prevents repositioning. */
+*html form.general p strong.label{
+  position: relative;
+}
+form.no-title {
+  padding-top: 15px;
+}
+form.general p.no-label,
+form.general p.buttons {
+  padding-left: 160px;
+}
+#content form.general p.no-content {
+  color: #c2242e;
+  font-style: italic;
+  padding-left: 160px;
+}
+form.forgot-password {
+  margin-top: 20px;
+}
+form.forgot-password input.text {
+  margin-bottom: 10px;
+  padding: 3px 4px;
+  width: 265px;
+}
+#content form.general p.no-church {
+  margin-bottom: 30px;
+}
+form.general p.no-church strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#left {
+  float: left;
+  padding-top: 30px;
+  width: 475px;
+}
+#right {
+  float: right;
+  padding-left: 30px;
+  padding-top: 30px;
+  width: 350px;
+  position: relative;
+}
+#right h3 {
+  margin: 0 0 10px 0;
+}
+
+/* Variations on the column widths */
+#left.twothirds { width: 550px; }
+#right.third { width: 275px; }
+#left.wide { width: 650px; } /* 80% */
+#right.narrow { width: 175px; } /* 20% */
+
+div.zip_code #left{ 
+   width: 460px;
+   padding-right: 0;
+   border: none;
+}
+div.zip_code #right{ 
+  border-left: 1px #e9e9e9 solid;
+  width: 350px; 
+  padding-left: 25px;
+}
+form.welcome {
+  margin-bottom: 25px;
+}
+form.welcome p label {
+  color: #bcbec0;
+  float: right;
+  font-family: "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+  font-style: italic;
+  font-weight: normal;
+  text-align: left;
+  width: 100px;
+}
+form.welcome p input.text {
+  width: 220px;
+}
+form.welcome p.buttons {
+  padding-left: 0;
+}
+
+form.welcome p.remember-me em {
+	display: block;
+	padding-left: 20px;
+}
+form.welcome p.buttons a#forgot-password{ 
+   position: relative;
+}
+* html form.welcome p.buttons {
+  margin-top: 10px;
+}
+* html form.welcome p.buttons input {
+  margin-top: -5px;
+}
+
+div.zip_code form.general p.buttons{ 
+	padding-left: 140px;
+	line-height: 12px !important;
+}
+div.zip_code form.general p.buttons input{ 
+  margin: 0;
+  padding: 0;
+}
+div.zip_code form.general p.buttons img{ 
+  float: left; 
+}
+div.zip_code form.general p.buttons em{ 
+  display: block;
+  float: right;
+  width: 140px;
+  padding: 0;
+}
+div.zip_code input#check-your-zip-code{ 
+  float: left; 
+  margin-left: 140px;
+}
+div.zip_code p#next-step{ 
+  float: right; 
+  width: 140px;
+}
+div.zip_code form.general{ 
+  margin-bottom: 0; 
+}
+div.zip_code p#tagline{ 
+  clear: both;
+  margin: 40px 0 0; 
+  text-align: center;
+  font-size: 105%;
+  font-weight: bold;
+  color: #6D9394;
+  line-height: 26px;
+}
+#single.static {
+  padding: 15px 50px;
+}
+#single.static h3 {
+  color: #c2242e;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 17px;
+}
+#single.static p,
+#single.static li {
+  color: #404040;
+  font-size: 12px;
+  line-height: 18px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  width: 700px;
+}
+#single.static p a {
+  color: #404040;
+}
+#single.static ol,
+#single.static ul {
+  margin-bottom: 10px;
+}
+#single.static li {
+  margin: 0 0 0 30px;
+}
+#single.static p.revision-date {
+  color: #999;
+  font-size: 10px;
+  font-style: italic;
+}
+#about-movie {
+  float: left;
+  margin: 15px 15px 0 0;
+}
+p.large-copy {
+  color: #898989 !important;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 25px !important;
+  line-height: 1em !important;
+  padding-top: 20px;
+}
+
+/** In sign_up/check_user.html.erb **/
+form#check-user {
+	float: left;
+}
+#usa-alert {
+	border-left: 1px #e9e9e9 solid;
+	float: right;
+	min-height: 300px;
+	padding-left: 15px;
+	width: 325px;
+	left: 600px;
+	position: absolute;
+}
+#usa-alert img {
+	float: left;
+	padding: 0 10px 10px 0;
+}
+#usa-alert h3 {
+
+}

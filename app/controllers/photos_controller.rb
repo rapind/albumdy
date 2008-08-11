@@ -7,9 +7,14 @@ class PhotosController < ResourceController::Base
   
   private #--------------
 
-  # Defining the collection explicitly for paging and limit to visible photos
+  # Explicitly defined for paging, to limit the visible photos, and to set the appropriate page title and description
   def collection
     @collection ||= end_of_association_chain.paginate :conditions => 'visible = 1 and thumbnail IS NULL', :page => params[:page], :per_page => 21, :order => 'created_at DESC'
+    
+    @page_title = 'Shared Photos'
+    @page_description = "Click on a photo to see it's original resolution. Use the next and previous links to move through the list of photos."
+    
+    return @collection
   end
   
 end

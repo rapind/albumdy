@@ -135,26 +135,17 @@ $(function() {
   
 });
 </script>
-<div class="first span-18">
-  <h1>
-    <%= h @album.title %>
-  </h1>
-</div>
-<div class="last" align="right">
-  <%= link_to 'Edit', "#{edit_manage_album_path(@album)}?width=315&height=340", :title => h(@album.title), :class => 'thickbox' %> | <%= link_to 'Remove', manage_album_path(@album), :confirm => "Are you sure want to remove this album and all of it's photos?", :method => :delete %> | <%= link_to "Back", manage_albums_path %>
-</div>
-<hr>
-
+<h4><%= link_to 'Edit This Album', "#{edit_manage_album_path(@album)}?width=315&height=340", :title => h(@album.title), :class => 'thickbox' %> | <%= link_to 'Remove This Album', manage_album_path(@album), :confirm => "Are you sure want to remove this album and all of it's photos?", :method => :delete %> | <%= link_to "Back to Your Albums", manage_albums_path %></h4>
 <form id="form1" action="#" method="post" enctype="multipart/form-data">
   <button type="submit" class="button positive" id="upload_button">
     <%= image_tag 'icons/key.png', :id => 'btnCancel' %> Upload Photos
   </button>
   <hr class="space">    
 </form>
-<fieldset>
-  <legend>Photos - Drag photos to change their display order</legend>
-  <ul id="photos">
-    <%= render :partial => "/manage/albums/photos/photo", :collection => @album.photos %>
-  </ul>
-</fieldset>
+<p>
+  Drag photos to change their display order.
+</p>
+<ul id="photos">
+  <%= render :partial => "/manage/albums/photos/photo", :collection => @album.photos %>
+</ul>
 <div id="divStatus" style="display:none"></div>

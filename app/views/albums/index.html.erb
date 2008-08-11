@@ -1,7 +1,7 @@
-<h1>Albums</h1>
-<hr>
-<ul id="albums">
-  <%= render :partial => "album", :collection => @collection %>
-</ul>
-<hr>
+<div class="span-22 first last">
+  <ul id="albums">
+    <%= render :partial => "album", :collection => @collection %>
+  </ul>
+</div>
 <%= will_paginate @collection %>
+<hr class="space">

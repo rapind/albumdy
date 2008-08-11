@@ -1,18 +1,15 @@
 <script type="text/javascript">
-
-$(function() {
+  $(function() {
 	
-	// binds lightbox to photo clicks
-  $('#photos a[@rel*=show]').lightBox();
+  	// binds lightbox to photo clicks
+    $('#photos a[@rel*=show]').lightBox();
 	
-});
+  });
 </script>
-<h1>
-  Photos
-</h1>
-<hr>
-<ul id="photos">
-  <%= render :partial => "photo", :collection => @collection %>
-</ul>
-<hr>
+<div class="span-22 first last">
+  <ul id="photos">
+    <%= render :partial => "photo", :collection => @collection %>
+  </ul>
+</div>
 <%= will_paginate @collection %>
+<hr class="space">

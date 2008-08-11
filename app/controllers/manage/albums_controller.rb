@@ -3,7 +3,10 @@ class Manage::AlbumsController < ApplicationController
   before_filter :login_required
   
   def index
-    @albums = current_user.albums.paginate :all, :page => params[:page]
+    @albums = current_user.albums.paginate :all, :page => params[:page], :per_page => 4, :order => 'created_at DESC'
+    
+    @page_title = "Manage Your Albums"
+    @page_description = "From here you can create a new album and populate it with photos, or edit an exiting album."
     
     respond_to do |format|
       format.html
@@ -14,6 +17,9 @@ class Manage::AlbumsController < ApplicationController
   def show
     @album = current_user.albums.find(params[:id])
     
+    @page_title = @album.title
+    @page_description = @album.description
+    
     respond_to do |format|
       format.html
       format.xml  { render :xml => @album }
@@ -23,6 +29,9 @@ class Manage::AlbumsController < ApplicationController
   def new
     @album = current_user.albums.build
     
+    @page_title = 'Create a New Photo Album'
+    @page_description = 'Create a new album and populate it with photos.'
+    
     respond_to do |format|
       format.html
       format.xml  { render :xml => @album }
@@ -31,6 +40,9 @@ class Manage::AlbumsController < ApplicationController
   
   def edit
     @album = current_user.albums.find(params[:id])
+    
+    @page_title = @album.title
+    @page_description = @album.description
   end
   
   def create

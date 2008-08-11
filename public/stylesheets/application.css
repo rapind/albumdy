@@ -1,141 +1,86 @@
-/* color scheme, dark to light
-/*
-1. #005193
-2. #124d7b
-3. #2f4a69
-4. #384556
-5. #33363b
-*/
-
 /* -- Blueprint Overrides ------------------------------- */
+hr {
+  margin-bottom:0.8em;
+}
 h1 {
-  font-size:2em;
-  line-height:1;
-  margin-bottom:0.5em;
+  font-size:4.3em;
+  font-weight:bold;
+  margin-bottom:0.2em;
 }
 h2 {
-  font-size:1.7em;
-  margin-bottom:0.75em;
+  line-height:1.4;
 }
-
-a {
-	color: #3a5a7f;
+h3 {
+  font-weight:bold;
+}
+a, a:visited {
 	text-decoration: none;
-	}
-a:visited {
-  color: #3a5a7f;
-  text-decoration:none; 
 }
-a:active {
-	color: #2f4a69;
-	background: #cad3e3;
-}
-a:hover {
-	color: #2f4a69;
-	background: #cad3e3;
-}
-
-hr {
-  background-color: #cad3e3;
-}
-
 legend {
 	font-size: 12px;
 }
-
+input.text {
+  width:230px;
+}
 textarea {
   width:300px;
   height:150px;
 }
+label {
+  color: #9a9a9a;
+  font-style: italic;
+  font-weight: normal;
+}
+em {
+  color: #9a9a9a;
+  font-style: italic;
+}
 
 
 /* -- Header ------------------------------- */
-.container {
-  background-color: #cad3e3;
+#header {
+  padding-top:20px;
 }
 
-.header {
-	color: white;
-	background-color: #384455;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	font-weight: bold;
-}
-.header a:link {
-  color: #fff;
-  padding:7px;
-}
-.header a:visited {
-  color: #fff;
-  padding:7px;
-}
-.header a:active {
-  color: #fff;
-}
-.header a:hover {
-  color: #fff;
-  background:#4b5c71;
+/* -- Footer ------------------------------- */
+#footer {
+  padding-top:10px;
 }
 
-/* -- Navigation ------------------------------- */
-.navigation {
-  color: white;
-  font-weight: bold;
-	background-color: #4b5c71;
-	padding-top: 10px;
-	padding-bottom: 11px;
-}
-.navigation a:link {
-  color: #fff;
-  padding:12px;
-}
-.navigation a:visited {
-  color: #fff;
-  padding:12px;
-}
-.navigation a:active {
-  color: #fff;
-}
-.navigation a:hover {
-  color: #fff;
-  background:#384455;
+/* -- Content ------------------------------ */
+#content {
+  padding-top:20px;
 }
 
-/* -- Flashes ------------------------------- */
+/* -- Flashes ------------------------------ */
 .flash_alert {
   color: #333;  
 	background: #fee;
 	border: solid 1px #db7;
 }
-
 .flash_alert .message {
 	padding: 0 0 0 25px;
 }
-
 .flash_notice {
 	color: #333;  
 	background: #efe;
 	border: solid 1px #bd7;
 }
-
 .flash_notice .message {
 	padding: 0 0 0 25px;
 }
-
 
 /* -- Albums ------------------------------- */
 #albums {
   margin: 0px;
 }
-
 #albums li {
   list-style-type: none;
   float:left;
   margin-bottom:22px;
-  margin-left:13px;
-  margin-right:13px;
+  margin-left:5px;
+  margin-right:15px;
 }
-
 .album_cover {
   border:1px solid #2A2A2A;
 }
@@ -144,107 +89,12 @@ textarea {
 #photos {
   margin: 0px;
 }
-
 #photos li {
   list-style-type: none;
   border:1px solid #2A2A2A;
   float:left;
   margin-bottom:22px;
-  margin-left:6px;
-  margin-right:5px;
+  margin-left:5px;
+  margin-right:10px;
   padding:3px 3px 3px;
-}
-
-
-/* -- SWFUpload ------------------------------- */
-fieldset.queue {
-  width: 375px;
-}
-
-.progressWrapper {
-	width: 357px;
-	overflow: hidden;
-}
-
-.progressContainer {
-	margin: 5px;
-	padding: 4px;
-	border: solid 1px #E8E8E8;
-	background-color: #F7F7F7;
-	overflow: hidden;
-}
-
-/* Error */
-.red {
-	border: solid 1px #B50000;
-	background-color: #FFEBEB;
-}
-
-/* Current */
-.green {
-	border: solid 1px #DDF0DD;
-	background-color: #EBFFEB;
-}
-
-/* Complete */
-.blue {
-	border: solid 1px #CEE2F2;
-	background-color: #F0F5FF;
-}
-
-.progressName {
-	font-size: 8pt;
-	font-weight: 700;
-	color: #555;
-	width: 323px;
-	height: 14px;
-	text-align: left;
-	white-space: nowrap;
-	overflow: hidden;
-}
-
-.progressBarInProgress,
-.progressBarComplete,
-.progressBarError {
-	font-size: 0;
-	width: 0%;
-	height: 2px;
-	background-color: blue;
-	margin-top: 2px;
-}
-
-.progressBarComplete {
-	width: 100%;
-	background-color: green;
-	visibility: hidden;
-}
-
-.progressBarError {
-	width: 100%;
-	background-color: red;
-	visibility: hidden;
-}
-
-.progressBarStatus {
-	margin-top: 2px;
-	width: 337px;
-	font-size: 7pt;
-	font-family: Arial;
-	text-align: left;
-	white-space: nowrap;
-}
-
-a.progressCancel {
-	font-size: 0;
-	display: block;
-	height: 14px;
-	width: 14px;
-	background-image: url(/images/icons/cancelbutton.gif);
-	background-repeat: no-repeat;
-	background-position: -14px 0px;
-	float: right;
-}
-
-a.progressCancel:hover {
-	background-position: 0px 0px;
 }
