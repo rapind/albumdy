@@ -19,6 +19,13 @@ vendor/plugins/acts_as_state_machine:
   revision: 
   squash: true
   remote: http://elitists.textdriven.com/svn/plugins/acts_as_state_machine/trunk
+vendor/plugins/friendly_id: 
+  local_branch: braid/git/vendor/plugins/friendly-id/master
+  type: git
+  revision: 
+  branch: master
+  squash: true
+  remote: git://github.com/norman/friendly_id.git
 vendor/plugins/attachment_fu: 
   local_branch: braid/git/vendor/plugins/attachment-fu/master
   type: git
@@ -26,13 +33,6 @@ vendor/plugins/attachment_fu:
   branch: master
   squash: true
   remote: git://github.com/technoweenie/attachment_fu.git
-vendor/plugins/will_paginate: 
-  local_branch: braid/git/vendor/plugins/will-paginate/master
-  type: git
-  revision: 
-  branch: master
-  squash: true
-  remote: git://github.com/mislav/will_paginate.git
 vendor/plugins/acts_as_list: 
   local_branch: braid/git/vendor/plugins/acts-as-list/master
   type: git
@@ -40,3 +40,10 @@ vendor/plugins/acts_as_list:
   branch: master
   squash: true
   remote: git://github.com/rails/acts_as_list.git
+vendor/plugins/will_paginate: 
+  local_branch: braid/git/vendor/plugins/will-paginate/master
+  type: git
+  revision: 
+  branch: master
+  squash: true
+  remote: git://github.com/mislav/will_paginate.git
