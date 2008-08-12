@@ -4,12 +4,15 @@ class Photo < ActiveRecord::Base
   acts_as_list :scope => :album
   
   has_attached_file :image, 
-                    :storage => :s3,
-                    :s3_credentials => "#{RAILS_ROOT}/config/amazon_s3.yml",
-                    :path => ":attachment/:id/:style.:extension",
-                    :bucket => 'albumdy',
+                    :path => ":rails_root/public/photos/:id/:style_:basename.:extension",
+                    :url => "/photos/:id/:style_:basename.:extension",
                     :styles => { :medium => "300x300>", :album_cover => '180x180>', :thumb => "100x100>" }
   
+                    #:storage => :s3,
+                    #:s3_credentials => "#{RAILS_ROOT}/config/amazon_s3.yml",
+                    #:path => "photos/:id/:style.:extension",
+                    #:bucket => 'albumdy',
+                    
   validates_attachment_presence :image
   validates_attachment_content_type :image, :content_type => 'image/jpeg'
   
