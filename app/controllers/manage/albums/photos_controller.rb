@@ -36,26 +36,33 @@ class Manage::Albums::PhotosController < ApplicationController
   end
   
   def create
-    # we have issues using restful_auth methods with SWFUpload, so we can't load the album filtered by current user.
-    # TODO - figure out what the deal is
-    @album = Album.find(params[:album_id])
     
-    # build the photo within the parent_object (album)    
-    @photo = @album.photos.build(:uploaded_data => params[:Filedata])
-
-    # fix the content type
-    @photo.content_type = MIME::Types.type_for(@photo.filename).to_s
+    if params[:Filedata]
+      # SWFUpload file
+      # we have issues using restful_auth methods with SWFUpload, so we can't load the album filtered by current user.
+      # TODO - figure out what the deal is
+      @album = Album.find(params[:album_id])
+      @photo = @album.photos.build(:swfupload_file => params[:Filedata])
+      # determine the title based on the filename
+      @photo.title = @photo.image_file_name.gsub(/\..*/, '').titleize if @photo.title.blank?
+      if @photo.save
+        render :text => @photo.image_file_name
+      else
+        render :text => "error"
+      end
+    else
+      # Standard upload
+      @photo = @album.photos.build params[:photo]
+      # determine the title based on the filename
+      @photo.title = @photo.image_file_name.gsub(/\..*/, '').titleize if @photo.title.blank?
+      if @photo.save
+        flash[:notice] = 'Your photo has been uploaded!'
+        redirect_to photos_path
+      else
+        render :action => :new
+      end
+    end
     
-    # determine the title based on the filename
-    @photo.title = @photo.filename.gsub(/\..*/, '').titleize if @photo.title.blank?
-    
-    # TODO - response block for html, xml, and ajax submissions
-    
-    # save it
-    @photo.save!
-    
-    # send back filename
-    render :text => @photo.public_filename
   end
   
   def update
@@ -88,7 +95,7 @@ class Manage::Albums::PhotosController < ApplicationController
   # find the latest photo for the album matching the filename
   def thumb
     filename = params[:filename]
-    @photo = @album.photos.find(:first, :conditions => [ "filename = ?", filename ], :order => 'created_at DESC')
+    @photo = @album.photos.find(:first, :conditions => [ "image_file_name = ?", filename ], :order => 'created_at DESC')
   end
   
   

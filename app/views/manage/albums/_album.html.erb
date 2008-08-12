@@ -1,6 +1,6 @@
 <li id="album_<%= album.id %>">
   <div class="span-5 first">
-    <%= link_to image_tag(album.photos.blank? ? 'empty.gif' : album.photos.first.public_filename(:album_cover), :size => '180x180', :class => 'album_cover', :alt => h(album.title), :title => h(album.title)), manage_album_path(album) %>
+    <%= link_to image_tag(album.photos.blank? ? 'empty.gif' : album.photos.first.image.url(:album_cover), :size => '180x180', :class => 'album_cover', :alt => h(album.title), :title => h(album.title)), manage_album_path(album) %>
   </div>
   <div class="span-5 last">
     <p>

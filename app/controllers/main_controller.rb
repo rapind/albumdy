@@ -4,7 +4,7 @@ class MainController < ApplicationController
   
   def index
     @albums = Album.find :all, :limit => 2, :conditions => 'visible = 1', :order => 'created_at DESC'
-    @photos = Photo.find :all, :limit => 9, :conditions => 'visible = 1 and thumbnail IS NULL', :order => 'created_at DESC'
+    @photos = Photo.find :all, :limit => 9, :conditions => 'visible = 1', :order => 'created_at DESC'
   end
 
   def about

@@ -7,11 +7,12 @@ class CreatePhotos < ActiveRecord::Migration
       t.integer :position, :default => 1
       t.string :title, :limit => 255
       t.text :description
-      
-      # attachment_fu fields
-      t.integer :parent_id, :size, :width, :height
-      t.string :content_type, :filename, :thumbnail
       t.boolean :visible, :null => false, :default => true
+      
+      # paperclip attachment fields
+      t.string :image_file_name # Original filename
+      t.string :image_content_type # Mime type
+      t.integer :image_file_size # File size in bytes
       
       t.timestamps
     end

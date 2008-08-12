@@ -1,8 +1,8 @@
 <p>
-  <% if @photo and @photo.filename and !@photo.filename.empty? -%>
-    <%= link_to image_tag(@photo.public_filename(:thumb), :alt => @photo.title), @photo.public_filename %>
+  <% if @photo and !@photo.image.blank? -%>
+    <%= link_to image_tag(@photo.image.url(:thumb), :alt => @photo.title), @photo.image.url %>
   <% end -%>
-  <%= f.file_field :uploaded_data, :class => 'text' %>
+  <%= f.file_field :image, :class => 'text' %>
 </p>
 <p>
   <%= f.label :title %><br />
