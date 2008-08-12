@@ -18,6 +18,7 @@ class AlbumsController < ResourceController::Base
     
     @page_title = 'Shared Albums'
     @page_description = "Click on an album to see it's photos. Use the next and previous links to page through the list of albums."
+    @feed_url = formatted_albums_url(:rss)
     
     return @collection
   end

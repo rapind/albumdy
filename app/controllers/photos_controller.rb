@@ -16,6 +16,7 @@ class PhotosController < ResourceController::Base
     
     @page_title = 'Shared Photos'
     @page_description = "Click on a photo to see it's original resolution. Use the next and previous links to move through the list of photos."
+    @feed_url = formatted_photos_url(:rss)
     
     return @collection
   end

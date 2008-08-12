@@ -2,6 +2,8 @@ class MainController < ApplicationController
 
   #caches_page :sitemap
   
+  before_filter :set_feed
+  
   def index
     @albums = Album.find :all, :limit => 2, :conditions => 'visible = 1', :order => 'created_at DESC'
     @photos = Photo.find :all, :limit => 9, :conditions => 'visible = 1', :order => 'created_at DESC'

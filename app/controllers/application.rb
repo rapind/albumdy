@@ -12,9 +12,13 @@ class ApplicationController < ActionController::Base
   
   # this removes the layout for all ajax requests across the board
   layout proc { |controller| controller.request.xhr? ? nil : 'application' }
-  
+    
   def sub_nav
     'default'
+  end
+  
+  def set_feed
+    @feed_url = formatted_albums_url(:rss)
   end
   
 end
