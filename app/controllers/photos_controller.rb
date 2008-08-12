@@ -2,6 +2,9 @@ class PhotosController < ResourceController::Base
   
   actions :index, :show
   
+  index.wants.xml { render :xml => @collection }
+  index.wants.rss  { render :layout => false } # uses index.rss.builder
+  
   index.flash 'Photos'
   show.flash 'Photo'
   
