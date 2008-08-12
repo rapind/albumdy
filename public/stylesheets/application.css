@@ -42,6 +42,17 @@ em {
   padding-top:20px;
 }
 
+/* -- Navigation --------------------------- */
+.nav-list {
+  display: inline;
+}
+.nav-list li {
+	display: inline;
+	margin: 0;
+	padding: 3px;
+	font-weight: bold;
+}
+
 /* -- Footer ------------------------------- */
 #footer {
   padding-top:10px;

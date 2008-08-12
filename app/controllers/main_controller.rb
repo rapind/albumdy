@@ -1,6 +1,6 @@
 class MainController < ApplicationController
 
-  caches_page :about, :terms, :privacy, :sitemap
+  #caches_page :sitemap
   
   def index
     @albums = Album.find :all, :limit => 2, :conditions => 'visible = 1', :order => 'created_at DESC'
