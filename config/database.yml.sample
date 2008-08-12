@@ -1,0 +1,20 @@
+login: &login
+  adapter: mysql
+  username: root
+  password: 
+  socket: /tmp/mysql.sock
+  
+development:
+  <<: *login
+  database: albumdy_development
+
+test:
+  <<: *login
+  database: albumdy_test
+
+production:
+  adapter: mysql
+  username: root
+  password: 
+  socket: /var/run/mysqld/mysqld.sock
+  database: albumdy
