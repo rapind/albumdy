@@ -8,5 +8,4 @@ db/*.sqlite3
 data.dump
 config/ultrasphinx/*.conf
 db/schema.rb
-config/database.yml
 config/amazon_s3.yml
