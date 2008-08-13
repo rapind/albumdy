@@ -3,7 +3,7 @@
   <h1><%= @page_title.blank? ? "Who is Albumdy?" : h(truncate(@page_title, 60, "...")) %></h1>
   <div class="span-22 append-1 first last">
     <h2>
-      <%= @page_description.blank? ? "Albumdy is an open source photo gallery built with Ruby on Rails and jQuery using some of my favorite plugins and practices. #{link_to "Get the Source &raquo;", 'http://github.com/rapind/albumdy'}" : h(truncate(@page_description, 160, "...")) %>
+      <%= @page_description.blank? ? "Albumdy is an open source photo gallery built with Ruby on Rails and jQuery using some of my favorite plugins and practices. #{link_to "Get the Source &raquo;", 'http://github.com/rapind/albumdy', :rel => 'nofollow'}" : h(truncate(@page_description, 160, "...")) %>
     </h2>
   </div>
   <div class="span-23 first last" align="right">
