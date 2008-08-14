@@ -16,3 +16,9 @@
 [submodule "vendor/plugins/acts_as_list"]
 	path = vendor/plugins/acts_as_list
 	url = git://github.com/rails/acts_as_list.git
+[submodule "vendor/plugins/workling"]
+	path = vendor/plugins/workling
+	url = git://github.com/purzelrakete/workling.git
+[submodule "vendor/plugins/spawn"]
+	path = vendor/plugins/spawn
+	url = git://github.com/tra/spawn.git
