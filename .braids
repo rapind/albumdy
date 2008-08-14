@@ -26,13 +26,6 @@ vendor/plugins/friendly_id:
   branch: master
   squash: true
   remote: git://github.com/norman/friendly_id.git
-vendor/plugins/paperclip: 
-  local_branch: braid/git/vendor/plugins/paperclip/master
-  type: git
-  revision: 
-  branch: master
-  squash: true
-  remote: git://github.com/thoughtbot/paperclip.git
 vendor/plugins/will_paginate: 
   local_branch: braid/git/vendor/plugins/will-paginate/master
   type: git
