@@ -1,3 +1,6 @@
 [submodule "vendor/plugins/paperclip"]
 	path = vendor/plugins/paperclip
 	url = git://github.com/thoughtbot/paperclip.git
+[submodule "vendor/plugins/friendly_id"]
+	path = vendor/plugins/friendly_id
+	url = git://github.com/norman/friendly_id.git
