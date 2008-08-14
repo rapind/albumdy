@@ -10,14 +10,14 @@ There are many existing photo gallery apps around, but none I could find demonst
 - Lightboxing effects using Leandro Vieira Pinho's jQuery lightBox: http://leandrovieira.com/projects/jquery/lightbox/
 - Textboxing effects using Cody Lindley's ThickBox: http://jquery.com/demo/thickbox/
 - Thin controllers with James Golick's resource_controller: http://jamesgolick.com/resource_controller
-- File uploads and thumbnail generation with Rick Olson's attachment_fu: http://github.com/technoweenie/attachment_fu
+- File uploads and thumbnail generation with Thoughtbot's Paperclip: http://www.thoughtbot.com/projects/paperclip
 - User Registration with Rick Olson's restful_authentication: http://github.com/technoweenie/restful-authentication
 - Plugin management for Git with Cristi Balan's Braid: http://github.com/evilchelu/braid
 - Project hosting with GitHub: http://github.com/
 - Organized nested routes as described in Regulators!!! Mount up: http://giantrobots.thoughtbot.com/2008/7/10/regulators-mount-up
 
-There are several other technologies I am considering migrating to or at least checking out within the context of this application:
-- Probably swapping attachment_fu for Thoughtbot's paperclip: http://www.thoughtbot.com/projects/paperclip
-- Possibly using Hampton Catlin's HAML: http://haml.hamptoncatlin.com/
+See a live demo at http://albumdy.com
 
-Grab the source from http://github.com/rapind/albumdy
+You will need the following gems installed:
+1. sudo gem install mime-types http://mime-types.rubyforge.org/
+2. sudo gem install right_aws (If you want to use Amazon S3 for storage, although paperclip + S3 is buggy at the moment)
