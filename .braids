@@ -33,13 +33,6 @@ vendor/plugins/paperclip:
   branch: master
   squash: true
   remote: git://github.com/thoughtbot/paperclip.git
-vendor/plugins/acts_as_list: 
-  local_branch: braid/git/vendor/plugins/acts-as-list/master
-  type: git
-  revision: 
-  branch: master
-  squash: true
-  remote: git://github.com/rails/acts_as_list.git
 vendor/plugins/will_paginate: 
   local_branch: braid/git/vendor/plugins/will-paginate/master
   type: git
@@ -47,3 +40,10 @@ vendor/plugins/will_paginate:
   branch: master
   squash: true
   remote: git://github.com/mislav/will_paginate.git
+vendor/plugins/acts_as_list: 
+  local_branch: braid/git/vendor/plugins/acts-as-list/master
+  type: git
+  revision: 
+  branch: master
+  squash: true
+  remote: git://github.com/rails/acts_as_list.git
