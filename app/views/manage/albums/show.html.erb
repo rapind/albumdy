@@ -16,7 +16,7 @@ $(function() {
 	// file upload settings
   var settings = {
 		flash_url : "/assets/swfupload_f9.swf",
-		upload_url: "<%= manage_album_photos_path(@album) %>",
+		upload_url: "<%= manage_album_photos_path(@album) %>?authenticity_token=<%= form_authenticity_token %>",
 		file_size_limit : "10 MB",
 		file_types : "*.*",
 		file_types_description : "All Images",

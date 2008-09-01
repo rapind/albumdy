@@ -1,6 +1,7 @@
 class Manage::AlbumsController < ApplicationController
   
   before_filter :login_required
+  skip_before_filter :verify_authenticity_token
   
   def index
     @albums = current_user.albums.paginate :all, :page => params[:page], :per_page => 4, :order => 'created_at DESC'

@@ -3,6 +3,7 @@ class Manage::Albums::PhotosController < ApplicationController
   # SWFUpload has issues with login_required
   before_filter :login_required, :except => :create
   before_filter :find_album, :except => :create
+  skip_before_filter :verify_authenticity_token
   
   def index
     @photos = @album.photos.paginate :all, :page => params[:page]
