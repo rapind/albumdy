@@ -14,6 +14,7 @@ class CreatePhotos < ActiveRecord::Migration
       t.string :image_content_type # Mime type
       t.integer :image_file_size # File size in bytes
       t.datetime :image_updated_at
+      t.boolean :image_local, :null => false, :default => true # images are stored locally first then moved to S3
       
       t.timestamps
     end

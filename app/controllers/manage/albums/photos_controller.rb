@@ -37,30 +37,23 @@ class Manage::Albums::PhotosController < ApplicationController
   
   def create
     
-    if params[:Filedata]
-      # SWFUpload file
-      # we have issues using restful_auth methods with SWFUpload, so we can't load the album filtered by current user.
-      # TODO - figure out what the deal is
-      @album = Album.find(params[:album_id])
-      @photo = @album.photos.build(:swfupload_file => params[:Filedata])
-      # determine the title based on the filename
-      @photo.title = @photo.image_file_name.gsub(/\..*/, '').titleize if @photo.title.blank?
-      if @photo.save
-        render :text => @photo.image_file_name
-      else
-        render :text => "error"
-      end
+    # SWFUpload file
+    # we have issues using restful_auth methods with SWFUpload, so we can't load the album filtered by current user.
+    # TODO - figure out what the deal is
+    @album = Album.find(params[:album_id])
+    @photo = @album.photos.build(:swfupload_file => params[:Filedata])
+    # determine the title based on the filename
+    @photo.title = @photo.image_file_name.gsub(/\..*/, '').titleize if @photo.title.blank?
+    
+    #spawn do
+      #@photo.save
+      #render :text => @photo.image_file_name
+    #end
+    
+    if @photo.save
+      render :text => @photo.image_file_name
     else
-      # Standard upload
-      @photo = @album.photos.build params[:photo]
-      # determine the title based on the filename
-      @photo.title = @photo.image_file_name.gsub(/\..*/, '').titleize if @photo.title.blank?
-      if @photo.save
-        flash[:notice] = 'Your photo has been uploaded!'
-        redirect_to photos_path
-      else
-        render :action => :new
-      end
+      render :text => "error"
     end
     
   end

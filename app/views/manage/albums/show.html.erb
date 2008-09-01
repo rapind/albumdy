@@ -101,11 +101,9 @@ $(function() {
         
         // end order as an array
         var end_order = $(this).sortable('serialize').replace(/photo\[\]\=/g, '').split('&');
-        console.log('End order: ' + end_order);
         
         // id of element that was moved (element is in the ui.helper object)
         var moved_photo_id = ui.helper.attr('id').replace('photo_', ''); // parse photo_ from the id
-        console.log('Moved photo id: ' + moved_photo_id);
         
         // determine the end position of the moved element
         var end_position = 0;
@@ -119,7 +117,6 @@ $(function() {
         }
         // increment it to match our backend which starts the list at 1 instead of 0
         end_position++;
-        console.log('End position: ' + end_position);
         
         // ajax post to save the position change
         // we're passing the parent album, the moved photo, and the new position of the photo
