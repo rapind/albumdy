@@ -14,7 +14,7 @@ class AlbumsController < ResourceController::Base
   
   # Explicitly defined for paging, to limit the visible albums, and to set the appropriate page title and description
   def collection
-    @collection ||= end_of_association_chain.paginate :conditions => 'visible = 1', :page => params[:page], :per_page => 4, :order => 'created_at DESC'
+    @collection ||= end_of_association_chain.paginate :conditions => 'visible = 1 AND photos_count > 0', :page => params[:page], :per_page => 4, :order => 'created_at DESC'
     
     @page_title = 'Shared Albums'
     @page_description = "Click on an album to see it's photos. Use the next and previous links to page through the list of albums."

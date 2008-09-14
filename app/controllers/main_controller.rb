@@ -5,7 +5,7 @@ class MainController < ApplicationController
   before_filter :set_feed
   
   def index
-    @albums = Album.find :all, :limit => 2, :conditions => 'visible = 1', :order => 'created_at DESC'
+    @albums = Album.find :all, :limit => 2, :conditions => 'visible = 1 AND photos_count > 0', :order => 'created_at DESC'
     @photos = Photo.find :all, :limit => 9, :conditions => 'visible = 1', :order => 'created_at DESC'
   end
 
