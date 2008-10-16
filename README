@@ -1,24 +1,24 @@
-Albumdy
--------
+Albumdy is an open source photo gallery built with Ruby on Rails and jQuery using some of my favorite plugins and practices.
 
-Yet another open source photo gallery application.
+A live demo is available at "albumdy.com":http://albumdy.com
 
 There are many existing photo gallery apps around, but none I could find demonstrating the following key technologies:
-- Built with Ruby on Rails 2.1: http://www.rubyonrails.org/
-- Client side scripting with the popular and unobtrusive jQuery: http://jquery.com/
-- CSS layout with Blueprint CSS: http://code.google.com/p/blueprintcss/
-- Lightboxing effects using Leandro Vieira Pinho's jQuery lightBox: http://leandrovieira.com/projects/jquery/lightbox/
-- Photo Gallery courtesy of Galleria: http://devkick.com/lab/galleria/
-- Textboxing effects using Cody Lindley's ThickBox: http://jquery.com/demo/thickbox/
-- Thin controllers with James Golick's resource_controller: http://jamesgolick.com/resource_controller
-- Multiple file upload client SWFUpload: http://swfupload.org/
-- File uploads and thumbnail generation with Thoughtbot's Paperclip: http://www.thoughtbot.com/projects/paperclip
-- User Registration with Rick Olson's restful_authentication: http://github.com/technoweenie/restful-authentication
-- Project hosting with GitHub: http://github.com/
-- Organized nested routes as described in Regulators!!! Mount up: http://giantrobots.thoughtbot.com/2008/7/10/regulators-mount-up
 
-See a live demo at http://www.albumdy.com
+    * Built with "Ruby on Rails 2.1":http://www.rubyonrails.org/
+    * CSS layout with "Blueprint CSS":http://www.blueprintcss.org/
+    * Client side scripting with the popular and unobtrusive "jQuery":http://jquery.com/
+    * Lightboxing effects using "Leandro Vieira Pinho's jQuery lightBox":http://leandrovieira.com/projects/jquery/lightbox/
+    * Photo Gallery courtesy of "Galleria":http://devkick.com/lab/galleria/
+    * Textboxing effects using "Cody Lindley's ThickBox":http://jquery.com/demo/thickbox/
+    * Multiple file upload client "SWFUpload":http://swfupload.org/
+    * Thin controllers with "James Golick's resource_controller":http://jamesgolick.com/resource_controller
+    * File uploads and thumbnail generation with "Thoughtbot's Paperclip":http://www.thoughtbot.com/projects/paperclip
+    * File storage with Amazon S3
+    * User Registration with "Rick Olson's restful_authentication":http://github.com/technoweenie/restful-authentication
+    * Permalinks (SEO) using "Randomba's friendly_id":http://github.com/norman/friendly_id/tree/master
+    * Organized nested routes as described in "Regulators!!! Mount up":http://giantrobots.thoughtbot.com/2008/7/10/regulators-mount-up
 
 You will need the following additional gems installed:
-1. sudo gem install mime-types http://mime-types.rubyforge.org/
-2. sudo gem install right_aws (If you want to use Amazon S3 for storage, although paperclip + S3 is a bit slow)
+
+    * sudo gem install mime-types http://mime-types.rubyforge.org/
+    * sudo gem install right_aws (If you want to use Amazon S3 for storage, although paperclip + S3 is a bit slow)
