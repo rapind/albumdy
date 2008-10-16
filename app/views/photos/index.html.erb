@@ -8,7 +8,7 @@
 </script>
 <div class="span-22 first last">
   <ul id="photos">
-    <%= render :partial => "photo", :collection => @collection %>
+    <%= render :partial => "row", :collection => @collection %>
   </ul>
 </div>
 <%= will_paginate @collection %>

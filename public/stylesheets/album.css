@@ -11,10 +11,10 @@ a:hover{color:#67a;}
 .album li div{left:240px}
 .album li div .caption{font:italic 0.7em/1.4 georgia,serif;}
 
-#main_image{margin:0 auto 30px auto;height:466px;width:700px;background:black;}
+#main_image{margin:0 auto 40px auto;height:466px;width:700px;background:black;}
 #main_image img{margin-bottom:10px;}
 
-.nav{padding-top:10px;clear:both;font:80% 'helvetica neue',sans-serif;letter-spacing:3px;text-transform:uppercase;}
+.nav{padding-top:15px;clear:both;font:80% 'helvetica neue',sans-serif;letter-spacing:3px;text-transform:uppercase;}
 
 .info{text-align:left;width:700px;margin:30px auto;border-top:1px dotted #221;padding-top:30px;}
 .info p{margin-top:1.6em;}

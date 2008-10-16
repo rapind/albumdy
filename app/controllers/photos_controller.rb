@@ -2,8 +2,6 @@ class PhotosController < ResourceController::Base
   
   belongs_to :album
   
-  actions :create, :edit, :update, :destroy, :show
-  
   before_filter :login_required, :only => [:edit, :update]
   skip_before_filter :verify_authenticity_token
   
@@ -44,5 +42,12 @@ class PhotosController < ResourceController::Base
     
     render :text => 'Success'
   end
+  
+  private
+  
+    # Defining the collection explicitly for paging / ordering
+    def collection
+      @collection ||= end_of_association_chain.paginate :page => params[:page], :per_page => 10, :order => 'position'
+    end
     
 end

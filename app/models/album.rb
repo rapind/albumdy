@@ -18,7 +18,7 @@ class Album < ActiveRecord::Base
   end
   
   def public_photos
-    self.photos.find :all, :limit => 12, :order => 'position'
+    self.photos.find :all, :limit => 9, :order => 'position'
   end
   
 end

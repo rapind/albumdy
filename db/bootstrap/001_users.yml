@@ -1,0 +1,9 @@
+demo:
+  id: 1
+  login: demo
+  email: demo@rapin.com
+  crypted_password: 0b9185187e3c7d6f8045d86cbadbbc2a4f07d9de
+  salt: 558484d17a9e9a4cff8038d1c97418209569f833
+  activated_at: 2008-08-12 19:58:44
+  state: active
+  albums_count: 1

@@ -11,9 +11,5 @@
     <%= f.label(:image, 'Upload a new image') %><br />
     <%= f.file_field :image, :class => 'text' %>
   </p>
-  <p>
-    <%= f.label(:description) %><br />
-    <%= f.text_area :description %>
-  </p>
   <%= render :partial => '/shared/buttons', :locals => {:collection_path => edit_photos_user_album_path(current_user, @album)} %>
 <% end %>

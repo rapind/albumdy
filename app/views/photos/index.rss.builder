@@ -10,7 +10,7 @@ xml.rss(:version=>"2.0"){
       xml.item do
         xml.title(photo.title)
         xml.category()
-        xml.description(photo.description)
+        xml.description(photo.title)
         xml.pubDate(photo.created_at.strftime("%a, %d %b %Y %H:%M:%S %z"))
         xml.link(photo_url(photo))
         xml.guid(photo_url(photo))

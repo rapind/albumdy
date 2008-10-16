@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # albums
   map.resources :albums, :has_many => :photos
+  map.resources :photos
   
   # users
   map.resources :users do |user|

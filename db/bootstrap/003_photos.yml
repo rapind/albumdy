@@ -1,0 +1,89 @@
+leaves:
+  album_id: 1
+  id: 1
+  position: 1
+  title: Leaves
+  image_file_name: "leaves.jpg"
+  image_content_type: "image/jpeg"
+  image_file_size: 35126
+  image_updated_at: "2008-10-10 11:03:28"
+
+bowling:
+  album_id: 1
+  id: 2
+  position: 2
+  title: Bowling
+  image_file_name: "bowling.jpg"
+  image_content_type: "image/jpeg"
+  image_file_size: 35126
+  image_updated_at: "2008-10-10 11:03:28"
+  
+heritage:
+  album_id: 1
+  id: 3
+  position: 3
+  title: Heritage
+  image_file_name: "heritage.jpg"
+  image_content_type: "image/jpeg"
+  image_file_size: 35126
+  image_updated_at: "2008-10-10 11:03:28"
+  
+library:
+  album_id: 1
+  id: 4
+  position: 4
+  title: Library
+  image_file_name: "library.jpg"
+  image_content_type: "image/jpeg"
+  image_file_size: 35126
+  image_updated_at: "2008-10-10 11:03:28"
+  
+stadium:
+  album_id: 1
+  id: 5
+  position: 5
+  title: Kew Park Stadium
+  image_file_name: "park-stadium.jpg"
+  image_content_type: "image/jpeg"
+  image_file_size: 35126
+  image_updated_at: "2008-10-10 11:03:28"
+  
+squirrel:
+  album_id: 1
+  id: 6
+  position: 6
+  title: Squirrel
+  image_file_name: "squirrel.jpg"
+  image_content_type: "image/jpeg"
+  image_file_size: 35126
+  image_updated_at: "2008-10-10 11:03:28"
+  
+violet:
+  album_id: 1
+  id: 7
+  position: 7
+  title: Violet Avenue
+  image_file_name: "violet-ave.jpg"
+  image_content_type: "image/jpeg"
+  image_file_size: 35126
+  image_updated_at: "2008-10-10 11:03:28"
+  
+wedding:
+  album_id: 1
+  id: 8
+  position: 8
+  title: Wedding on the Beach
+  image_file_name: "wedding.jpg"
+  image_content_type: "image/jpeg"
+  image_file_size: 35126
+  image_updated_at: "2008-10-10 11:03:28"
+  
+hut:
+  album_id: 1
+  id: 9
+  position: 9
+  title: View of Beach Through Hut
+  image_file_name: "beach-hut.jpg"
+  image_content_type: "image/jpeg"
+  image_file_size: 35126
+  image_updated_at: "2008-10-10 11:03:28"
