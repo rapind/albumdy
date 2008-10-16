@@ -39,28 +39,57 @@ em {
 
 /* -- Header ------------------------------- */
 #header {
-  padding-top:20px;
+  float:left;
+  width:910px;
+  padding: 10px 20px 0px 20px;
 }
 
 /* -- Navigation --------------------------- */
-.nav-list {
+#nav {
+  float: right;
+  text-align: right;
+}
+#nav ul {
   display: inline;
 }
-.nav-list li {
+#nav ul li {
 	display: inline;
 	margin: 0;
 	padding: 3px;
 	font-weight: bold;
 }
 
-/* -- Footer ------------------------------- */
-#footer {
-  padding-top:10px;
-}
-
 /* -- Content ------------------------------ */
 #content {
-  padding-top:20px;
+  float:left;
+  width:910px;
+  margin: 20px;
+}
+#content p img {
+  margin-top: 2px;
+  margin-right: 8px;
+}
+#main {
+  float:left;
+  width:550px;
+}
+#sub {
+  width:310px;
+  padding: 15px;
+  margin: 0px 0px 10px 20px;
+  float:right;
+}
+.half {
+  float: left;
+  width: 455px;
+}
+
+/* -- Footer ------------------------------- */
+#footer {
+  float:left;
+  width:910px;
+  margin: 0px 20px 0px 20px;
+  padding-top:10px;
 }
 
 /* -- Flashes ------------------------------ */

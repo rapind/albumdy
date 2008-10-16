@@ -1,19 +1,15 @@
 <!-- header -->
-<div class="span-23 prepend-1 first last" id="header">
-  <h1><%= @page_title.blank? ? "Who is Albumdy?" : h(truncate(@page_title, 60, "...")) %></h1>
-  <div class="span-22 append-1 first last">
-    <h2>
-      <%= @page_description.blank? ? "Albumdy is an open source photo gallery built with Ruby on Rails and jQuery using some of my favorite plugins and practices. #{link_to "Get the Source &raquo;", 'http://github.com/rapind/albumdy', :rel => 'nofollow'}" : h(truncate(@page_description, 160, "...")) %>
-    </h2>
-  </div>
-  <div class="span-23 first last" align="right">
-    <ul class="nav-list">
+<div id="header">
+  <h1><%= link_to h(truncate(@page_title, 60, "...")), '/' %></h1>
+  <h2>
+    <%= h(truncate(@page_description, 160, "...")) %>
+  </h2>
+  <div id="nav">
+    <ul>
       <li><%= link_to 'Shared Albums &raquo;', albums_path %></li>
-      |
-      <li><%= link_to 'Shared Photos &raquo;', photos_path %></li>
       &nbsp; &nbsp; &nbsp;
-      <% if user_logged_in? -%>
-        <li><%= link_to 'Your Albums &raquo;', manage_albums_path %></li>
+      <% if logged_in? -%>
+        <li><%= link_to 'Your Albums &raquo;', user_albums_path(current_user) %></li>
         |
         <li><%= link_to 'Sign Out &raquo;', logout_path %></li>
       <% else -%>

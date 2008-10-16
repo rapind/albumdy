@@ -1,18 +1,23 @@
 <!-- footer -->
-<div class="span-22 prepend-1 append-1 first last">
-  <div class="span-22 first last" id="footer">
+<div id="footer">
+  <div style="float:left;">
     <p>
-      Copyright &copy; 2008 <%= link_to 'Dave Rapin', 'http://rapin.com', :rel => 'nofollow' %>. All rights reserved.
-      &nbsp;
       <%= link_to 'Home', '/' %>
       |
       <%= link_to 'About', about_path %>
       |
-      <%= link_to 'Feedback', 'http://getsatisfaction.com/albumdy', :rel => 'nofollow' %>
+      <%=link_to 'Terms', terms_path %>
       |
-      <%=link_to 'Terms', terms_path, :rel => 'nofollow' %>
+      <%= link_to 'Privacy', privacy_path %>
       |
-      <%= link_to 'Privacy', privacy_path, :rel => 'nofollow' %>
+      <%= link_to 'Feedback', 'http://getsatisfaction.com/albumdy' %>
+      |
+      <%= link_to 'Source Code', 'http://github.com/rapind/albumdy' %>
+    </p>
+  </div>
+  <div style="float:right;">
+    <p>  
+      Open Source Photo Gallery by <%= link_to 'Dave Rapin', 'http://www.rapin.com' %>
     </p>
   </div>
 </div>

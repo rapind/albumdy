@@ -1,3 +1,0 @@
-<li class="photo_li" id="photo_<%= photo.id %>">
-  <%= link_to image_tag(photo.image(:thumb), :size => '100x100', :alt => h(photo.title), :title => h(photo.title)), photo.image.url, :title => h(photo.title), :rel => 'show' %>
-</li>

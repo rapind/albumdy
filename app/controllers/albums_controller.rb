@@ -2,36 +2,50 @@ class AlbumsController < ResourceController::Base
 
   belongs_to :user
   
-  actions :index, :show
+  actions :index, :show, :new, :create, :edit, :update, :destroy
   
-  index.wants.xml { render :xml => @collection }
+  before_filter :login_required, :only => [:new, :create, :edit, :update, :edit_photos, :destroy]
+  
+  create.flash "Your album has been created successfully."
+  update.flash "Your album has been updated successfully."
+  
+  index.wants.xml { render :xml => @albums }
+  show.wants.xml { render :xml => @album }
   index.wants.rss  { render :layout => false } # uses index.rss.builder
+
+  # redirect to edit instead of show on create and update
+  [create, update].each { |action| action.wants.html { redirect_to edit_photos_user_album_path(@object.user, @object) } }
   
-  index.flash 'Albums'
-  show.flash 'Album'
+  show.wants.html {
+    render(:layout => 'album')
+  }
+  edit.wants.html {
+    @page_title = "Editing #{@object.title}"
+    @page_description = "Choose a title for your album of up to 40 characters, and a description of up to 2,000 characters."
+  }
   
-  private #--------------
-  
-  # Explicitly defined for paging, to limit the visible albums, and to set the appropriate page title and description
-  def collection
-    @collection ||= end_of_association_chain.paginate :conditions => 'visible = 1 AND photos_count > 0', :page => params[:page], :per_page => 4, :order => 'created_at DESC'
+  def edit_photos
+    @user = current_user
+    @album = @object = current_user.albums.find(params[:id])
     
-    @page_title = 'Shared Albums'
-    @page_description = "Click on an album to see it's photos. Use the next and previous links to page through the list of albums."
+    @page_title = "Editing #{@object.title}"
+    @page_description = "From here you can upload new photos, edit existing photos, remove photos, and order their placement."
+  end
+  
+  def set_meta
+    @page_title = parent_object ? "Albums from #{parent_object.login}" : 'Shared Albums'
+    @page_description = "Select an album below to view it's photos."
+    @page_keywords = 'album, photo, gallery, ruby, rails, ruby on rails, open source, blueprint, jquery, lightbox, thickbox, resource_controller, attachment_fu, restful_authentication, braid, github'
+    @feed_title = 'Albumdy Photo Albums'
     @feed_url = formatted_albums_url(:rss)
-    
-    return @collection
   end
   
-  # Explicitly defined to set the appropriate page title and description
-  def object
-    # run the query
-    @object ||= end_of_association_chain.find(param)
-    
-    @page_title = @object.title
-    @page_description = "Click on a photo to see it's original resolution. Use the next and previous links to move through the list of photos."
-    
-    return @object
-  end
+  private
+
+    # Defining the collection explicitly for paging / ordering
+    def collection
+      # TODO - add conitional conditions for empty albums
+      @collection ||= end_of_association_chain.paginate  :page => params[:page], :per_page => 10, :order => 'created_at DESC'
+    end
   
 end

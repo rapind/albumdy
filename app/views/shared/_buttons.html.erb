@@ -1,19 +1,20 @@
-<script type="text/javascript">
-$(function() {
-  // remove thickbox
-	$('p a#cancel').click(function() {
-	  
-	  // TODO - detect if we're in a thickbox
-	  // only call tb_remove(); if we're in a thickbox
-	  return tb_remove();
+<script>
+$(document).ready(function() {
+  
+  // remove thickbox when a cancel button is clicked within a thickbox window
+  // we're keeping this code in here, because the TB_window isn't bound until a thickbox ajax
+  // document is loaded
+	$('#TB_window p.buttons a#cancel').click(function() {
+    return tb_remove();
 	});
+	
 });
 </script>
 <p class="buttons">
   <button type="submit" class="button positive">
-    <%= image_tag 'icons/key.png' %> <%= action%>
+    <%= image_tag 'icons/key.png' %> <%= (controller.action_name == 'new') ? 'Create' : 'Update' %>
   </button>
-  <a class="button negative" href="<%= collection_url %>" id="cancel">
+  <a class="button negative" href="<%= collection_path %>" id="cancel">
     <%= image_tag 'icons/cross.png' %> Cancel
   </a>
 </p>

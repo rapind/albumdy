@@ -19,6 +19,9 @@ a:active, a:hover {
   color: #638a8c;
 	background: #dff6f1;
 }
+h1 a, h1 a:visited {
+  color: #638a8c;
+}
 hr {
   background-color: #88c6cf;
 }

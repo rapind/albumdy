@@ -3,16 +3,15 @@
 <head>
 <meta name="verify-v1" content="st18OsL2TuSSc+4XLSSm8v8C3PN4rqb2awrVdoR+BxE=" />
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-<meta name="Keywords" content="<%=h @page_keywords || 'album, photo, gallery, ruby, rails, ruby on rails, open source, blueprint, jquery, lightbox, thickbox, resource_controller, attachment_fu, restful_authentication, braid, github' %>" />
-<meta name="Description" content="<%=h @page_description || 'AlBumdy is an open source photo gallery using the following technologies: ruby on rails, blueprint css, jquery, lightbox, thickbox, resource_controller, attachment_fu, restful_authentication, braid, github' %>" />
-<link rel="alternate" type="application/rss+xml" title="AlBumdy | <%= @page_title %> RSS Feed" href="<%= @feed_url %>" />
+<meta name="Keywords" content="<%= h @page_keywords %>" />
+<meta name="Description" content="<%= h @page_description %>" />
+<link rel="alternate" type="application/rss+xml" title="Albumdy Photo Albums" href="<%= formatted_albums_url(:rss) %>" />
 <meta name="revisit-after" content="3 days" />
 <meta name="robots" content="index, follow" />
-<title><%=h @page_title || 'Albumdy' %></title>
-<%= stylesheet_link_tag 'blueprint/screen', 'buttons', 'thickbox', 'lightbox', 'application', 'themes/blue-orange', :media => 'screen, projection' %>
-<%= stylesheet_link_tag 'blueprint/print', :media => 'print' %>
-<!--[if IE]><%= stylesheet_link_tag 'blueprint/ie', :media => 'screen, projection' %><![endif]-->
-<%= javascript_include_tag 'jquery-1.2.6.min.js', 'jquery-ui-personalized-1.5.2.min.js', 'thickbox', 'jquery.lightbox-0.5.min.js', 'swfupload', 'fileprogress', 'handlers', 'swfupload.queue.js', 'application' %>
+<title><%= h @page_title %></title>
+<%= stylesheet_link_tag 'screen', 'buttons', 'thickbox', 'application', 'themes/blue-orange', :media => 'screen, projection' %>
+<!--[if IE]><%= stylesheet_link_tag 'ie', :media => 'screen, projection' %><![endif]-->
+<%= javascript_include_tag 'jquery-1.2.6.min.js', 'jquery-ui-personalized-1.5.2.min.js', 'thickbox', 'application' %>
 </head>
 
 <body>
@@ -22,9 +21,8 @@
     
     <%= render :partial => "shared/messages" %>
     
-  	<hr class="space">
   	<!-- content -->
-    <div class="span-22 prepend-1 append-1 first last" id="content">
+    <div id="content">
       <%= yield :layout %>
     </div>
   
@@ -33,12 +31,12 @@
   </div>
   
   <script type="text/javascript">
-  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-  </script>
-  <script type="text/javascript">
-  var pageTracker = _gat._getTracker("UA-2450369-18");
-  pageTracker._trackPageview();
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    var pageTracker = _gat._getTracker("UA-2450369-18");
+    pageTracker._trackPageview();
   </script>
 </body>
 

@@ -1,1 +1,7 @@
-Photo root
+<h4><%=h @photo.title %></h4>
+<p><%=h @photo.description %></p>
+<p style="font-size:10px;margin-top:5px;">
+  Wallpaper Downloads:<br />
+  | <%= link_to '640x480', @photo.image.url(:vga) %> | <%= link_to '800x600', @photo.image.url(:svga) %> | <%= link_to '1024x768', @photo.image.url(:xga) %> |<br />
+  | <%= link_to '1400x1050', @photo.image.url(:sxga) %> | <%= link_to '1600x1200', @photo.image.url(:uxga) %> |
+</p>

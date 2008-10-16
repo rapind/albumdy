@@ -1,24 +1,26 @@
+<%= stylesheet_link_tag 'lightbox', 'swfupload' %>
+<%= javascript_include_tag 'jquery.lightbox-0.5.min.js', 'swfupload', 'fileprogress', 'handlers', 'swfupload.queue.js' %>
 <script type="text/javascript">
 
 // file upload object
 var swfu;
 
 $(function() {
-	
+
 	// binds / rebinds lightbox to photo clicks
 	function bindLightBox() {
-	  $('#photos a[@rel*=show]').lightBox();
+	  $('#photos a[@rel*=thumb]').lightBox();
 	}
-	
+
 	// bind the lightbox as son as we're loaded.
 	bindLightBox();
-	
+
 	// file upload settings
   var settings = {
 		flash_url : "/assets/swfupload_f9.swf",
-		upload_url: "<%= manage_album_photos_path(@album) %>?authenticity_token=<%= form_authenticity_token %>",
-		file_size_limit : "10 MB",
-		file_types : "*.*",
+		upload_url: "<%= user_album_photos_path(@user, @object) -%>",
+		file_size_limit : "2000",
+		file_types : "*.jpg",
 		file_types_description : "All Images",
 		file_upload_limit : 10,
 		file_queue_limit : 0,
@@ -41,30 +43,30 @@ $(function() {
 
   // init the file upload object
 	swfu = new SWFUpload(settings);
-	
+
 	// capture the upload button click and launch SWFUpload
 	$('#upload_button').click(function(e) {
     swfu.selectFiles();
     return false;
   });
-  
+
 	// append each new photo as they are uploaded to the list of photos via ajax
 	function uploadComplete(file) {
-	  $.get("<%= thumb_manage_album_photos_path(@album) %>?filename=" + file.name, function(data){
+	  $.get("<%= thumb_user_album_photos_path(@user, @object) %>?filename=" + escape(file.name), function(data){
       $("#photos").append(data);
-      
+    
       // re-bind lightbox to the photos elements
       bindLightBox();
     });
 	}
-	
+
 	// Capture clicks within the photos list.
 	// This allows us to trap events from dynamically added ajax content within it.
 	$('#photos').click(function(e) {
-	  
+  
     if( $(e.target).is('a[@rel*=remove]') ) {
       // remove link clicked, launch ajax remove
-      
+    
       // get the parent div so we can remove it on successful deletion
   	  var thumb = $(e.target).parents("li");
 
@@ -73,23 +75,23 @@ $(function() {
   	  $.post(e.target.href, {_method:"delete", authenticity_token:"<%= form_authenticity_token %>"}, function(data) {
   	    // remove the thumbnail from the display on success
         thumb.remove();
-        
+      
         // re-bind lightbox to the photos elements so we have a correct count
         bindLightBox();
   	  });
-    
+  
     } else if( $(e.target).is('a[@rel*=edit]') ) {
       // edit link clicked, launch thickbox
       tb_show(e.target.title, e.target.href);
-       
+     
     }
-    
+  
     // cancel the click
     return false;
-    
-  });
   
-	
+  });
+
+
 	// allows for photo sorting within an album by dragging them around.
 	// updates the order on the fly using ajax
 	// this is by far the trickiest JS in the app
@@ -98,13 +100,13 @@ $(function() {
       opacity: 0.7,
       update: function(e, ui) {
         // determine the end position for the element that was moved
-        
+      
         // end order as an array
         var end_order = $(this).sortable('serialize').replace(/photo\[\]\=/g, '').split('&');
-        
+      
         // id of element that was moved (element is in the ui.helper object)
         var moved_photo_id = ui.helper.attr('id').replace('photo_', ''); // parse photo_ from the id
-        
+      
         // determine the end position of the moved element
         var end_position = 0;
         // loop through all order elements
@@ -117,11 +119,11 @@ $(function() {
         }
         // increment it to match our backend which starts the list at 1 instead of 0
         end_position++;
-        
+      
         // ajax post to save the position change
         // we're passing the parent album, the moved photo, and the new position of the photo
-        $.post('/manage/albums/<%= @album.id %>/photos/' + moved_photo_id + '/update_position', {_method:"put", authenticity_token:"<%= form_authenticity_token %>", position:end_position}, function(data) {
-     	    
+        $.post('/users/<%= @user.id %>/albums/<%= @object.id %>/photos/' + moved_photo_id + '/update_position', {_method:"put", authenticity_token:"<%= form_authenticity_token %>", position:end_position}, function(data) {
+   	    
           // re-bind lightbox so the photos elements are in the right order for next / prev buttons
           bindLightBox();
      	  });
@@ -129,23 +131,21 @@ $(function() {
       },
       revert: true
   });
-  
+
 });
 </script>
-<h4><%= link_to 'Edit This Album', "#{edit_manage_album_path(@album)}?width=315&height=340", :title => h(@album.title), :class => 'thickbox' %> | <%= link_to 'Remove This Album', manage_album_path(@album), :confirm => "Are you sure want to remove this album and all of it's photos?", :method => :delete %> | <%= link_to "Back to Your Albums", manage_albums_path %></h4>
-<form id="form1" action="#" method="post" enctype="multipart/form-data">
+
+<h4><%= link_to 'Launch Album View &raquo;', object_path %></h4>
+<form id="form" action="#" method="post" enctype="multipart/form-data">
   <button type="submit" class="button positive" id="upload_button">
-    <%= image_tag 'icons/key.png', :id => 'btnCancel' %> Upload Photos
+    <%= image_tag 'icons/key.png' %> Upload Photos
   </button>
-  <hr class="space">    
+  <%= image_tag 'icons/key.png', :id => 'btnCancel', :style => 'display:none;' %>  
 </form>
-<p>
-  Please be patient during photo uploads. All images are being sent to Amazon S3 over seperate HTTP connections at the moment. This slows down the upload process significantly.
-</p>
-<p>
-  Drag photos to change their display order.
+<p class="clear">
+  You can drag and drop photos to change their display order. The very first photo will be the cover for the album. Photos are resized to a 4:3 aspect ratio for display on the site once they've been submitted, so the closer you can get each photo's original dimensions to 4:3 the better they will look. I.e. 640x480, 800x600, and 1024x768 pixels are all 4:3 ratios. If you provide more than 15 photos, only the first 15 will be shown in the album view.
 </p>
 <ul id="photos">
-  <%= render :partial => "/manage/albums/photos/photo", :collection => @album.photos %>
+  <%= render :partial => "/photos/row", :collection => @object.photos %>
 </ul>
 <div id="divStatus" style="display:none"></div>

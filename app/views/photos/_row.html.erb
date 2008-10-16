@@ -1,0 +1,8 @@
+<li class="photo_li" id="photo_<%= row.id %>">
+  <%= link_to image_tag(row.image(:cover), :size => '180x134', :alt => h(row.title)), row.image.url, :title => h(row.title), :rel => 'thumb' %>
+  <% if logged_in? and current_user.id == row.album.user.id -%>
+    <div align="center">
+      <%= link_to 'Edit', "#{edit_user_album_photo_path(current_user, row.album, row)}?width=350&height=500", :title => h(row.title), :rel => 'edit' %> | <%= link_to 'Remove', user_album_photo_path(current_user, row.album, row), :rel => 'remove' %>
+    </div>
+  <% end -%>
+</li>

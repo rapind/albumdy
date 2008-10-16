@@ -5,6 +5,7 @@ class UsersController < ResourceController::Base
   # registration
   def new
     @page_title = 'Membership Signup'
+    @page_description = "If this is your first time here, you can sign up for a new account below. Once signed in you can upload and manage your own photo albums."
     @user = User.new
   end
 

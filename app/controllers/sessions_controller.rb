@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
         current_user.remember_me unless current_user.remember_token?
         cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
       end
-      redirect_back_or_default('/')
+      redirect_back_or_default(user_albums_path(current_user))
       flash[:notice] = "Logged in successfully"
     else
       flash[:alert] = "We were unable to log you in with the login and password provided. Please double check your activation email and try again."

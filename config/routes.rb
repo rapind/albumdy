@@ -1,5 +1,16 @@
 ActionController::Routing::Routes.draw do |map|
 
+  # albums
+  map.resources :albums, :has_many => :photos
+  
+  # users
+  map.resources :users do |user|
+    # displaying and managing photos for users
+    user.resources :albums, :member => { :edit_photos => :get } do |album|
+      album.resources :photos, :collection => { :thumb => :get }, :member => { :update_position => :put }
+    end
+  end
+  
   # admin section to manage all users, albums, and photos.
   # simple management operations means we don't need deeply nested routes.
   map.namespace :admin do |admin|
@@ -7,23 +18,6 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :albums, :has_many => :photos
     admin.resources :photos
   end
-  
-  # management section where user's manage their albums and photos
-  map.namespace :manage do |manage|
-    manage.resources :users
-    manage.resources :albums do |album|
-      album.resources :photos, :controller => 'albums/photos', :collection => { :thumb => :get }, :member => { :update_position => :put }
-    end
-  end
-  
-  # public view of users and the albums they own
-  map.resources :users, :has_many => :albums
-  
-  # public view of albums
-  map.resources :albums
-  
-  # public view of photos
-  map.resources :photos
   
   # regsitration and login routes
   map.resource  :session
@@ -35,15 +29,11 @@ ActionController::Routing::Routes.draw do |map|
   map.reset_password '/reset_password/:id', :controller => 'users', :action => 'reset_password'
   
   # basic top level routes
+  map.root :controller => 'main', :action => 'index'
   map.about '/about', :controller => 'main', :action => 'about'
   map.contact '/contact', :controller => 'main', :action => 'contact'
   map.terms '/terms', :controller => 'main', :action => 'terms'
   map.privacy '/privacy', :controller => 'main', :action => 'privacy'
-  
-  # google sitemap route
-  map.connect "sitemap.xml", :controller => "main", :action => "sitemap"
-  
-  # root route
-  map.root :controller => 'main', :action => 'index'
+  map.connect "sitemap.xml", :controller => "main", :action => "sitemap" # google sitemap.xml
   
 end

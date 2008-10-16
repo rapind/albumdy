@@ -1,3 +1,0 @@
-<% form_for(:photo, :url => manage_album_photo_path(@album, @photo), :html => { :method => :put, :multipart => true }) do |f| -%>
-  <%= render :partial => "form", :locals => {:f => f, :action => 'Update'} %>
-<% end -%>

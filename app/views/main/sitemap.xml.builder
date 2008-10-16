@@ -10,23 +10,17 @@ xml.urlset "xmlns" => "http://www.google.com/schemas/sitemap/0.84" do
   xml.url do
     xml.loc         "http://www.albumdy.com/about/"
     xml.lastmod     w3c_date(Time.now)
-    xml.changefreq  "weekly"
+    xml.changefreq  "monthly"
   end
   
   xml.url do
     xml.loc         "http://www.albumdy.com/signup/"
     xml.lastmod     w3c_date(Time.now)
-    xml.changefreq  "weekly"
+    xml.changefreq  "monthly"
   end
   
   xml.url do
     xml.loc         "http://www.albumdy.com/albums/"
-    xml.lastmod     w3c_date(Time.now)
-    xml.changefreq  "always"
-  end
-  
-  xml.url do
-    xml.loc         "http://www.albumdy.com/photos/"
     xml.lastmod     w3c_date(Time.now)
     xml.changefreq  "always"
   end

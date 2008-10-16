@@ -1,13 +1,10 @@
 class CreatePhotos < ActiveRecord::Migration
   def self.up
     create_table :photos do |t|
-      # can't specify required fields because thumbnails are stored in this same table as child objects
-      # (self-referecing parent/child)
-      t.references :album
+      t.references :album, :null => false
       t.integer :position, :default => 1
-      t.string :title, :limit => 255
-      t.text :description
-      t.boolean :visible, :null => false, :default => true
+      t.string :title, :limit => 128
+      t.string :description, :limit => 500
       
       # paperclip attachment fields
       t.string :image_file_name # Original filename

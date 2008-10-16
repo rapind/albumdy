@@ -1,7 +1,10 @@
-<div class="span-22 first last">
-  <ul id="albums">
-    <%= render :partial => "album", :collection => @collection %>
-  </ul>
-</div>
-<%= will_paginate @collection %>
-<hr class="space">
+<% if logged_in? -%>
+  <p>
+    <strong><%= link_to 'Add a Photo Album &raquo;', new_object_path %></strong><br />
+  </p>
+<% end -%>
+
+<%= render :partial => "row", :collection => @collection %>
+<p class="clear">
+  <%= will_paginate @collection %>
+</p>
