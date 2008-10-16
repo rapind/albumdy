@@ -7,8 +7,8 @@ class AlbumsController < ResourceController::Base
   create.flash "Your album has been created successfully."
   update.flash "Your album has been updated successfully."
   
-  index.wants.xml { render :xml => @albums }
-  show.wants.xml { render :xml => @album }
+  #index.wants.xml { render :xml => @albums }
+  #show.wants.xml { render :xml => @album }
   index.wants.rss  { render :layout => false } # uses index.rss.builder
 
   # redirect to edit instead of show on create and update

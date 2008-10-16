@@ -5,6 +5,8 @@ class PhotosController < ResourceController::Base
   before_filter :login_required, :only => [:edit, :update]
   skip_before_filter :verify_authenticity_token
   
+  index.wants.rss  { render :layout => false } # uses index.rss.builder
+  
   create.flash ''
   update.flash 'Photo was successfully updated.'
   destroy.flash 'Photo was successfully removed.'
