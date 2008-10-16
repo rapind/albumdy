@@ -4,8 +4,6 @@ class MainController < ApplicationController
   
   def index
     redirect_to user_albums_path(current_user) if logged_in?
-    @albums = Album.find :all, :limit => 2, :conditions => 'visible = 1 AND photos_count > 0', :order => 'created_at DESC'
-    @photos = Photo.find :all, :limit => 9, :conditions => 'visible = 1', :order => 'created_at DESC'
   end
 
   def about
@@ -24,7 +22,7 @@ class MainController < ApplicationController
   end
   
   def sitemap
-    @albums = Album.find :all, :conditions => 'visible = 1', :order => 'created_at DESC'
+    @albums = Album.find :all, :conditions => 'photos_count > 0', :order => 'created_at DESC'
     render :action => 'sitemap.xml.builder', :layout => false
   end
   

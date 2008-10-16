@@ -6,6 +6,6 @@
     <br />
     <%= link_to 'Edit This Album &raquo;', edit_user_album_path(row.user, row) %><br />
     <%= link_to 'Manage Photos for This Album &raquo;', edit_photos_user_album_path(row.user, row) %><br />
-    <%= link_to 'Remove This Album &raquo;', user_album_path(row.user, row), :confirm => 'Are you sure?', :method => :delete %>
+    <%= link_to 'Remove This Album &raquo;', user_album_path(row.user, row), :confirm => "Are you sure? Removing this album will also remove all it's photos.", :method => :delete %>
   <% end -%>
 </p>

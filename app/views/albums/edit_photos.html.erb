@@ -137,13 +137,16 @@ $(function() {
 
 <h4><%= link_to 'Launch Album View &raquo;', object_path %></h4>
 <form id="form" action="#" method="post" enctype="multipart/form-data">
+  <p>
+    **NOTE: If you are having problems launching SWFUpload to upload photos, please see <%= link_to 'this thread', 'http://code.google.com/p/swfupload/issues/detail?id=72', :target => '_blank' %>. SWFUpload doesn't work with Flash 10 yet due to security changes.
+  </p>
   <button type="submit" class="button positive" id="upload_button">
     <%= image_tag 'icons/key.png' %> Upload Photos
   </button>
   <%= image_tag 'icons/key.png', :id => 'btnCancel', :style => 'display:none;' %>  
 </form>
 <p class="clear">
-  You can drag and drop photos to change their display order. The very first photo will be the cover for the album. Photos are resized to a 4:3 aspect ratio for display on the site once they've been submitted, so the closer you can get each photo's original dimensions to 4:3 the better they will look. I.e. 640x480, 800x600, and 1024x768 pixels are all 4:3 ratios. If you provide more than 9 photos, only the first 9 will be shown in the album view.
+  You can drag and drop photos to change their display order. The very first photo will be the cover for the album. Photos are resized to a 3:2 aspect ratio for display on the site once they've been submitted, so the closer you can get each photo's original dimensions to 3:2 the better they will look. I.e. 720 x 480. 3:2 was chosen because it's the standard aspect ratio of dSLR cameras. You may provide more than 9 photos, however only the first 9 will be shown in the album view.
 </p>
 <ul id="photos">
   <%= render :partial => "/photos/row", :collection => @object.photos %>

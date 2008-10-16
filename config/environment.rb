@@ -27,7 +27,12 @@ Rails::Initializer.run do |config|
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "aws-s3", :lib => "aws/s3"
+  
+  # config.gem doesn't seem to be working for rubyist-aasm and mime-types for some reason
+  # config.gem 'rubyist-aasm'
+  # config.gem 'mime-types'
   config.gem 'resource_controller'
+  config.gem 'mislav-will_paginate', :version => '~> 2.3.2', :lib => 'will_paginate', :source => 'http://gems.github.com'
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
@@ -52,7 +57,7 @@ Rails::Initializer.run do |config|
   # no regular words or you'll be exposed to dictionary attacks.
   config.action_controller.session = {
     :session_key => '_albumdy_session',
-    :secret      => '1e147d6e19531d8460ce4e02c4a98b2bed803f7979fd66675c175c1ecf532a1a89a9b1896f62565c7bcc6e59f3cadfac1590d84768604a5b224d4706a807e7fb'
+    :secret      => 'c2b9a62437412d4ee9aa572804920c0237b6ba158f18a6281984af6405a37f7dd8f3b880c089d35b776cf1361fcb29debb786325e0ad87ae56f93cdf6e2ac9c5'
   }
 
   # Use the database for sessions instead of the cookie-based default,

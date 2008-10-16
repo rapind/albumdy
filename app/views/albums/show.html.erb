@@ -58,7 +58,7 @@
   <p class="nav"><a href="#" onclick="$.galleria.prev(); return false;">&laquo; previous</a> | <a href="#" onclick="$.galleria.next(); return false;">next &raquo;</a></p>
 </div>
 <div class="info">
-  <h2>Album Description</h2>
+  <h2><%= h @object.title %></h2>
   <p>
     <%=h @object.description %> &nbsp; <%= link_to "More Photo Albums from #{@object.user.login} &raquo;", user_albums_path(@object.user) %>
   </p>

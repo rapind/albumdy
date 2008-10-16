@@ -2,8 +2,6 @@ class AlbumsController < ResourceController::Base
 
   belongs_to :user
   
-  actions :index, :show, :new, :create, :edit, :update, :destroy
-  
   before_filter :login_required, :only => [:new, :create, :edit, :update, :edit_photos, :destroy]
   
   create.flash "Your album has been created successfully."
@@ -21,7 +19,7 @@ class AlbumsController < ResourceController::Base
   }
   edit.wants.html {
     @page_title = "Editing #{@object.title}"
-    @page_description = "Choose a title for your album of up to 40 characters, and a description of up to 2,000 characters."
+    @page_description = "Choose a title for your album of up to 40 characters, and a description of up to 500 characters."
   }
   
   def edit_photos
