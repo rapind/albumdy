@@ -15,6 +15,7 @@ class AlbumsController < ResourceController::Base
   [create, update].each { |action| action.wants.html { redirect_to edit_photos_user_album_path(@object.user, @object) } }
   
   show.wants.html {
+    @page_title = "#{@object.title} by #{@object.user.login}"
     render(:layout => 'album')
   }
   edit.wants.html {
