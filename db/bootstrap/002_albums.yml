@@ -1,13 +1,13 @@
 beaches:
   id: 1
-  user_id: 1
+  user_id: 2
   title: The Beaches
   description: "A random collection of pictures taken in the Toronto Beaches neighborhood."
   photos_count: 9
 
 toronto-graffiti:
   id: 2
-  user_id: 1
+  user_id: 2
   title: Toronto Graffiti
   description: "Collection of graffiti pictures taken in Toronto around the Queen West neighborhood."
   photos_count: 9

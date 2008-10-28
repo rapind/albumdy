@@ -9,12 +9,12 @@ class Photo < ActiveRecord::Base
   has_attached_file :image,
                     # using typical SLR camera aspect ratio of 2:3 (I.e. 4" x 6")
                     :styles => { :original => "700x466", :cover => "150x100!", :thumb => "68x50!" },
-                    #:path => ":rails_root/public/photos/:id/:style_:basename.:extension",
-                    #:url => "/photos/:id/:style_:basename.:extension"
-                    :storage => :s3,
-                    :s3_credentials => "#{RAILS_ROOT}/config/amazon_s3.yml",
-                    :path => "photos/:id/:style_:basename.:extension",
-                    :bucket => 'albumdy'
+                    :path => ":rails_root/public/photos/:id/:style_:basename.:extension",
+                    :url => "/photos/:id/:style_:basename.:extension"
+                    #:storage => :s3,
+                    #:s3_credentials => "#{RAILS_ROOT}/config/amazon_s3.yml",
+                    #:path => "photos/:id/:style_:basename.:extension",
+                    #:bucket => 'albumdy'
                     
   validates_attachment_presence :image
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/gif', 'image/png', 'image/pjpeg', 'image/x-png']

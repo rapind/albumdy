@@ -6,4 +6,13 @@ demo:
   salt: 558484d17a9e9a4cff8038d1c97418209569f833
   activated_at: 2008-08-12 19:58:44
   state: active
-  albums_count: 1
+
+rapind:
+  id: 2
+  login: dave
+  email: albumdy@rapin.com
+  crypted_password: "de1ed4054c86201aada36455d282ca4d3b1e4e93"
+  salt: "04f4f9497421b7de5f967d03295f855ed179c498"
+  activated_at: 2008-08-12 19:58:44
+  state: active
+  albums_count: 2
