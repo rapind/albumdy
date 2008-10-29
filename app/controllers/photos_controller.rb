@@ -5,15 +5,6 @@ class PhotosController < ResourceController::Base
   before_filter :login_required, :only => [:edit, :update]
   skip_before_filter :verify_authenticity_token
   
-  index.wants.rss  { render :layout => false } # uses index.rss.builder
-  
-  create.flash ''
-  update.flash 'Photo was successfully updated.'
-  destroy.flash 'Photo was successfully removed.'
-  
-  # redirect to the user album instead of show on update and destroy
-  [update, destroy].each { |action| action.wants.html { redirect_to edit_photos_user_album_path(current_user, @album) } }
-  
   def create
     # SWFUpload file
     # we have issues using restful_auth methods with SWFUpload, so we can't load the album filtered by current user.
@@ -44,6 +35,16 @@ class PhotosController < ResourceController::Base
     
     render :text => 'Success'
   end
+  
+  create.flash ''
+  update.flash 'Photo was successfully updated.'
+  destroy.flash 'Photo was successfully removed.'
+  
+  # redirect to the user album instead of show on update and destroy
+  [update, destroy].each { |action| action.wants.html { redirect_to edit_photos_user_album_path(current_user, @album) } }
+  
+  index.wants.rss  { render :layout => false } # uses index.rss.builder
+  
   
   private
   

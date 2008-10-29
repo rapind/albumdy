@@ -4,25 +4,6 @@ class AlbumsController < ResourceController::Base
   
   before_filter :login_required, :only => [:new, :create, :edit, :update, :edit_photos, :destroy]
   
-  create.flash "Your album has been created successfully."
-  update.flash "Your album has been updated successfully."
-  
-  #index.wants.xml { render :xml => @albums }
-  #show.wants.xml { render :xml => @album }
-  index.wants.rss  { render :layout => false } # uses index.rss.builder
-
-  # redirect to edit instead of show on create and update
-  [create, update].each { |action| action.wants.html { redirect_to edit_photos_user_album_path(@object.user, @object) } }
-  
-  show.wants.html {
-    @page_title = "#{@object.title} by #{@object.user.login}"
-    render(:layout => 'album')
-  }
-  edit.wants.html {
-    @page_title = "Editing #{@object.title}"
-    @page_description = "Choose a title for your album of up to 40 characters, and a description of up to 500 characters."
-  }
-  
   def edit_photos
     @user = current_user
     @album = @object = current_user.albums.find(params[:id])
@@ -38,6 +19,25 @@ class AlbumsController < ResourceController::Base
     @feed_title = 'Albumdy Photo Albums'
     @feed_url = formatted_albums_url(:rss)
   end
+  
+  create.flash "Your album has been created successfully."
+  update.flash "Your album has been updated successfully."
+
+  # redirect to edit instead of show on create and update
+  [create, update].each { |action| action.wants.html { redirect_to edit_photos_user_album_path(@object.user, @object) } }
+  
+  show.wants.html {
+    @page_title = "#{@object.title} by #{@object.user.login}"
+    render(:layout => 'album')
+  }
+  edit.wants.html {
+    @page_title = "Editing #{@object.title}"
+    @page_description = "Choose a title for your album of up to 40 characters, and a description of up to 500 characters."
+  }
+  
+  #index.wants.xml { render :xml => @albums }
+  #show.wants.xml { render :xml => @album }
+  index.wants.rss  { render :layout => false } # uses index.rss.builder
   
   private
 
