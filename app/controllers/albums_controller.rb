@@ -43,8 +43,12 @@ class AlbumsController < ResourceController::Base
 
     # Defining the collection explicitly for paging / ordering
     def collection
-      # TODO - add conitional conditions for empty albums
-      @collection ||= end_of_association_chain.paginate  :page => params[:page], :per_page => 10, :order => 'created_at DESC'
+      # show empty albums only if it's a user looking at their own albums (so they can manage them)
+      if parent_object and logged_in? and parent_object.id == current_user.id
+        @collection ||= end_of_association_chain.paginate :page => params[:page], :per_page => 4, :order => 'created_at DESC'
+      else
+        @collection ||= end_of_association_chain.paginate :page => params[:page], :conditions => 'photos_count > 0', :per_page => 4, :order => 'created_at DESC'
+      end
     end
   
 end
