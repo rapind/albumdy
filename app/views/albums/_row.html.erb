@@ -2,7 +2,7 @@
   <%= link_to(image_tag(row.photo.image.url(:cover), :size => '150x100'), user_album_path(row.user, row), :title => h(row.title)) if row.photo and row.photo.image.file? %>
   <strong><%=link_to h(row.title), user_album_path(row.user, row) %></strong><br />
   <%= truncate(h(row.description), 300) %>
-  <% if logged_in? and current_user.id = row.user.id -%>
+  <% if logged_in? and current_user.id == row.user.id -%>
     <br />
     <%= link_to 'Edit This Album &raquo;', edit_user_album_path(row.user, row) %><br />
     <%= link_to 'Manage Photos for This Album &raquo;', edit_photos_user_album_path(row.user, row) %><br />
