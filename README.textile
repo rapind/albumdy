@@ -1,8 +1,8 @@
-h1. Albumdy is an open source photo gallery built with Ruby on Rails and jQuery using some of my favorite plugins and practices.
+h3. Albumdy is an open source photo gallery built with Ruby on Rails and jQuery using some of my favorite plugins and practices.
 
-h2. A live demo is available at "albumdy.com":http://albumdy.com
+h3. A live demo is available at "www.albumdy.com":http://www.albumdy.com
 
-h2. There are many existing photo gallery apps around, but none I could find demonstrating the following key technologies:
+h3. There are many existing photo gallery apps around, but none I could find demonstrating the following key technologies:
 
   * Built with "Ruby on Rails 2.1":http://www.rubyonrails.org/
   * CSS layout with "Blueprint CSS":http://www.blueprintcss.org/
@@ -18,12 +18,12 @@ h2. There are many existing photo gallery apps around, but none I could find dem
   * Permalinks (SEO) using "Randomba's friendly_id":http://github.com/norman/friendly_id/tree/master
   * Organized nested routes as described in "Regulators!!! Mount up":http://giantrobots.thoughtbot.com/2008/7/10/regulators-mount-up
 
-h2. You will need the following additional gems installed:
+h3. You will need the following additional gems installed:
 
   * sudo gem install mime-types http://mime-types.rubyforge.org/
   * sudo gem install right_aws (If you want to use Amazon S3 for storage, although paperclip + S3 is a bit slow)
 
-h2. To install and run the app:
+h3. To install and run the app:
 
   * git clone git://github.com/rapind/albumdy.git
   * go to the application's root directory I.e. cd ~/Sites/albumdy
