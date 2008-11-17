@@ -32,3 +32,4 @@ To install and run the app:
   * rake db:migrate
   * rake db:bootstrap
   * script/server
+  
