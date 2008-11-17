@@ -1,6 +1,6 @@
 .DS_Store
 tmp
-log/**/*
+log/*.log
 doc/api
 test/**/*
 db/*.sqlite3
