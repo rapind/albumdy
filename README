@@ -22,3 +22,13 @@ You will need the following additional gems installed:
 
     * sudo gem install mime-types http://mime-types.rubyforge.org/
     * sudo gem install right_aws (If you want to use Amazon S3 for storage, although paperclip + S3 is a bit slow)
+
+To install and run the app:
+
+  * git clone git://github.com/rapind/albumdy.git
+  * go to the application's root directory I.e. cd ~/Sites/albumdy
+  * rename / copy the database.yml.sample to database.yml and enter your database information (I.e. cp config/database.yml.sample config/database.yml)
+  * rake db:create
+  * rake db:migrate
+  * rake db:bootstrap
+  * script/server

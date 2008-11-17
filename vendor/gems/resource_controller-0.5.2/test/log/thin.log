@@ -1,0 +1,12 @@
+>> Writing PID to tmp/pids/thin.pid
+>> Using rails adapter
+
+      *******************************************************************
+      * config.breakpoint_server has been deprecated and has no effect. *
+      *******************************************************************
+      
+>> Thin web server (v0.8.1 codename Rebel Porpoise)
+>> Threaded mode OFF
+>> Maximum connections set to 1024
+>> Listening on 0.0.0.0:3000, CTRL+C to stop
+>> Exiting!

@@ -31,7 +31,7 @@ Rails::Initializer.run do |config|
   # config.gem doesn't seem to be working for rubyist-aasm and mime-types for some reason
   # config.gem 'rubyist-aasm'
   # config.gem 'mime-types'
-  config.gem 'resource_controller'
+  config.gem 'resource_controller' #, :version => '~> 0.5.2'
   config.gem 'mislav-will_paginate', :version => '~> 2.3.2', :lib => 'will_paginate', :source => 'http://gems.github.com'
 
   # Only load the plugins named here, in the order given. By default, all plugins 
