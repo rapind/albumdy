@@ -92,7 +92,7 @@ class UsersController < ResourceController::Base
 
   # Defining the collection explicitly for paging and limit to visible users
   def collection
-    @collection ||= end_of_association_chain.paginate :conditions => "state = 'active", :page => params[:page], :per_page => 10, :order => 'created_at DESC'
+    @collection ||= end_of_association_chain.paginate :conditions => "state = 'active'", :page => params[:page], :per_page => 10, :order => 'created_at DESC'
   end
   
 end
