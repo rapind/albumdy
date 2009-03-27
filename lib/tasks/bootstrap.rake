@@ -5,10 +5,11 @@ namespace :db do
   namespace :bootstrap do
     desc "Load initial database fixtures (in db/bootstrap/*.yml) into the current environment's database.  Load specific fixtures using FIXTURES=x,y"
     task :load => :environment do
-      ActiveRecord::Base.connection.execute "TRUNCATE users"
-      ActiveRecord::Base.connection.execute "TRUNCATE albums"
-      ActiveRecord::Base.connection.execute "TRUNCATE photos"
-      ActiveRecord::Base.connection.execute "TRUNCATE slugs"
+      # There is no TRUNCATE in sqlite
+      truncate = ActiveRecord::Base.connection.adapter_name =~ /sqlite/i ? "DELETE FROM" : "TRUNCATE"
+      %w(users albums photos slugs).each {|name|
+        ActiveRecord::Base.connection.execute "#{truncate} #{name}"
+      }
       
       require 'active_record/fixtures'
       if ENV['FIXTURES']
