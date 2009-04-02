@@ -1,3 +1,10 @@
+if RUBY_VERSION > "1.9"
+  class String
+    alias_method :each, :each_line
+  end
+end
+
+
 # Be sure to restart your server when you modify this file
 
 # Uncomment below to force Rails into production mode when
@@ -31,9 +38,9 @@ Rails::Initializer.run do |config|
   # config.gem doesn't seem to be working for rubyist-aasm and mime-types for some reason
   # config.gem 'rubyist-aasm'
   # config.gem 'mime-types'
-  config.gem 'resource_controller' #, :version => '~> 0.5.2'
+  config.gem 'giraffesoft-resource_controller', :version => '~> 0.6.1', :lib => 'resource_controller', :source => 'http://gems.github.com'
   config.gem 'mislav-will_paginate', :version => '~> 2.3.2', :lib => 'will_paginate', :source => 'http://gems.github.com'
-  config.gem 'thoughtbot-paperclip', :version => "~> 2.2.7",:lib => 'paperclip', :source => 'http://gems.github.com'
+  config.gem 'thoughtbot-paperclip', :version => "~> 2.2.7",:lib => 'paperclip', :source => 'http://gems.github.com'  
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
