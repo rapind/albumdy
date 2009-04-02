@@ -2,12 +2,12 @@
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
 if RUBY_VERSION > "1.9"
+  Gem::RubyGemsVersion
   class String
     alias_method :each, :each_line
   end
 end
 
-Gem::RubyGemsVersion
 require(File.join(File.dirname(__FILE__), 'config', 'boot'))
 
 require 'rake'

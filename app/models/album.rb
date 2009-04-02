@@ -7,10 +7,7 @@ class Album < ActiveRecord::Base
   
   validates_presence_of :user, :title
   validates_length_of :title, :within => 5..128
-  validates_length_of :description, :within => 20..500, :allow_nil => true, :allow_blank => true
-  
-  has_friendly_id :title, :use_slug => true, :strip_diacritics => true
-  
+  validates_length_of :description, :within => 20..500, :allow_nil => true, :allow_blank => true  
   
   # used as album cover
   def photo

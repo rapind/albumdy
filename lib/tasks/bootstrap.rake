@@ -28,7 +28,7 @@ namespace :db do
       fixtures = fixture_files.map do |fixture_path, table_name|
         Fixtures.new(connection, table_name, nil, fixture_path)
       end
-      connection.transaction(Thread.current['open_transactions'] == 0) do
+      connection.transaction do
         fixtures.reverse.each { |fixture| fixture.delete_existing_fixtures }
         fixtures.each { |fixture| fixture.insert_fixtures }
 
@@ -42,18 +42,18 @@ namespace :db do
       end
       
       # loop through for friendy_ids
-      users = User.find(:all)
-      for obj in users
-        obj.save
-      end
-      albums = Album.find(:all)
-      for obj in albums
-        obj.save
-      end
-      photos = Photo.find(:all)
-      for obj in photos
-        obj.save
-      end
+      # users = User.find(:all)
+      # for obj in users
+      #   obj.save
+      # end
+      # albums = Album.find(:all)
+      # for obj in albums
+      #   obj.save
+      # end
+      # photos = Photo.find(:all)
+      # for obj in photos
+      #   obj.save
+      # end
             
     end
   end
