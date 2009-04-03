@@ -17,7 +17,7 @@ class AlbumsController < ResourceController::Base
     @page_description = "Select an album below to view it's photos."
     @page_keywords = 'album, photo, gallery, ruby, rails, ruby on rails, open source, blueprint, jquery, lightbox, thickbox, resource_controller, attachment_fu, restful_authentication, braid, github'
     @feed_title = 'Albumdy Photo Albums'
-    @feed_url = formatted_albums_url(:rss)
+    @feed_url = albums_url(:rss)
   end
   
   create.flash "Your album has been created successfully."

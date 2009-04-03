@@ -2,7 +2,7 @@ xml.instruct! :xml, :version=>"1.0"
 xml.rss(:version=>"2.0"){
   xml.channel{
     xml.title(@page_title)
-    xml.link(formatted_albums_url(:rss))
+    xml.link(albums_url(:rss))
     xml.description(@page_description)
     xml.language('en-us')
 
