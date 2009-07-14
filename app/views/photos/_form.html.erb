@@ -1,0 +1,15 @@
+<p>
+  <%= f.label(:title) %><br />
+  <small>It is important to use a descriptive title.</small><br />
+  <%= f.text_field :title, :class => 'text' %>
+</p>
+
+<p>
+  <%= f.label :image, 'Upload Image' %><br />
+  <% if @object.image.file? -%>
+    <%= image_tag(@object.image.url(:thumb), :size => '68x50', :style => 'margin: 10px 5px 0px 0px;', :alt => @object.title) %>
+  <% end -%>
+  <%= f.file_field :image, :class => 'text' %>
+</p><br />
+
+<%= render :partial => '/shared/buttons', :locals => {:collection_path => edit_photos_user_album_path(current_user, @album)} %>

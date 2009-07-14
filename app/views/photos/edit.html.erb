@@ -1,13 +1,4 @@
 <%= error_messages_for :photo %>
 <% form_for(:photo, :url => user_album_photo_path(current_user, @album, @object), :html => { :method => :put, :multipart => true }) do |f| %>
-  <p>
-    <%= f.label(:title) %><br />
-    <small>It is important to use a descriptive title.</small><br />
-    <%= f.text_field :title, :class => 'text' %>
-  </p>
-  <p>
-    <%= f.label(:image, 'Upload a new image') %><br />
-    <%= f.file_field :image, :class => 'text' %>
-  </p>
-  <%= render :partial => '/shared/buttons', :locals => {:collection_path => edit_photos_user_album_path(current_user, @album)} %>
+  <%= render :partial => "form", :locals => { :f => f } %>
 <% end %>

@@ -1,9 +1,5 @@
-<%= stylesheet_link_tag 'lightbox', 'swfupload' %>
-<%= javascript_include_tag 'jquery.lightbox-0.5.min.js', 'swfupload', 'fileprogress', 'handlers', 'swfupload.queue.js' %>
 <script type="text/javascript">
 
-// file upload object
-var swfu;
 
 $(function() {
 
@@ -14,51 +10,6 @@ $(function() {
 
 	// bind the lightbox as son as we're loaded.
 	bindLightBox();
-
-	// file upload settings
-  var settings = {
-		flash_url : "/assets/swfupload_f9.swf",
-		upload_url: "<%= user_album_photos_path(@user, @object) -%>",
-		file_size_limit : "2000",
-		file_types : "*.jpg",
-		file_types_description : "All Images",
-		file_upload_limit : 10,
-		file_queue_limit : 0,
-		custom_settings : {
-			cancelButtonId : "upload_button" // required, so we're just pointing to the upload button.
-		},
-		debug: false,
-
-		// The event handler functions are defined in handlers.js
-		file_queued_handler : fileQueued,
-		file_queue_error_handler : fileQueueError,
-		file_dialog_complete_handler : fileDialogComplete,
-		upload_start_handler : uploadStart,
-		upload_progress_handler : uploadProgress,
-		upload_error_handler : uploadError,
-		upload_success_handler : uploadSuccess,
-		upload_complete_handler : uploadComplete,
-		queue_complete_handler : queueComplete	// Queue plugin event
-	};
-
-  // init the file upload object
-	swfu = new SWFUpload(settings);
-
-	// capture the upload button click and launch SWFUpload
-	$('#upload_button').click(function(e) {
-    swfu.selectFiles();
-    return false;
-  });
-
-	// append each new photo as they are uploaded to the list of photos via ajax
-	function uploadComplete(file) {
-	  $.get("<%= thumb_user_album_photos_path(@user, @object) %>?filename=" + escape(file.name), function(data){
-      $("#photos").append(data);
-    
-      // re-bind lightbox to the photos elements
-      bindLightBox();
-    });
-	}
 
 	// Capture clicks within the photos list.
 	// This allows us to trap events from dynamically added ajax content within it.
@@ -136,15 +87,11 @@ $(function() {
 </script>
 
 <h4><%= link_to 'Launch Album View &raquo;', object_path %></h4>
-<form id="form" action="#" method="post" enctype="multipart/form-data">
-  <p>
-    **NOTE: If you are having problems launching SWFUpload to upload photos, please see <%= link_to 'this thread', 'http://code.google.com/p/swfupload/issues/detail?id=72', :target => '_blank' %>. SWFUpload doesn't work with Flash 10 yet due to security changes.
-  </p>
-  <button type="submit" class="button positive" id="upload_button">
-    <%= image_tag 'icons/key.png' %> Upload Photos
-  </button>
-  <%= image_tag 'icons/key.png', :id => 'btnCancel', :style => 'display:none;' %>  
-</form>
+<p>
+  <a class="button positive thickbox" href="<%= new_user_album_photo_path(current_user, @album) %>?width=350&height=250" title="Upload Photo">
+    <%= image_tag 'icons/key.png' %> Upload Photo
+  </a>
+</p>
 <p class="clear">
   You can drag and drop photos to change their display order. The very first photo will be the cover for the album. Photos are resized to a 3:2 aspect ratio for display on the site once they've been submitted, so the closer you can get each photo's original dimensions to 3:2 the better they will look. I.e. 720 x 480. 3:2 was chosen because it's the standard aspect ratio of dSLR cameras. You may provide more than 9 photos, however only the first 9 will be shown in the album view.
 </p>

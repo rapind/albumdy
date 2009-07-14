@@ -17,12 +17,6 @@ class Photo < ActiveRecord::Base
                     #:bucket => 'albumdy'
                     
   validates_attachment_presence :image
-  validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/gif', 'image/png', 'image/pjpeg', 'image/x-png']
-  
-  # Fix the mime types. Make sure to require the mime-types gem
-  def swfupload_file=(data)
-    data.content_type = MIME::Types.type_for(data.original_filename).to_s
-    self.image = data
-  end  
+  validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/gif', 'image/png', 'image/pjpeg', 'image/x-png'] 
   
 end
