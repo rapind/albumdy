@@ -19,4 +19,26 @@ class Photo < ActiveRecord::Base
   validates_attachment_presence :image
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/gif', 'image/png', 'image/pjpeg', 'image/x-png'] 
   
+  # This is the datetime format EXIF datetime is represented in 
+  @@exif_date_format = '%Y:%m:%d %H:%M:%S'
+  
+  # Define Paperclip callback just for the Photo attachment 
+  after_image_post_process  :post_process_image
+  
+  # Callback after styles processing (thumbnails). 
+  # Use this to extract Exif metadata from the image
+  def post_process_image
+    # only works with jpgs
+    if image.content_type == 'image/jpeg' || 'image/pjpeg'
+      img_meta = EXIFR::JPEG.new(image.queued_for_write[:original].path)
+      return unless img_meta
+      logger.debug "Photo EXIF: " + img_meta.inspect
+      self.camera_model = img_meta.model
+      self.exposure_time = img_meta.exposure_time.to_s
+      self.f_number = img_meta.f_number.to_s
+      self.taken_at = img_meta.date_time
+      # also have width and height. See http://exifr.rubyforge.org/api/index.html for details
+    end
+  end
+    
 end
