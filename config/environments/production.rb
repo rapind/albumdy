@@ -22,4 +22,4 @@ config.action_view.cache_template_loading            = true
 # config.action_mailer.raise_delivery_errors = false
 
 # Domain setting for mailers
-DOMAIN = "albumdy.com"
+DOMAIN = "albumdy.rapin.com"

@@ -22,4 +22,4 @@ config.action_controller.allow_forgery_protection    = false
 config.action_mailer.delivery_method = :test
 
 # Domain setting for mailers
-DOMAIN = "albumdy.com"
+DOMAIN = "albumdy.rapin.com"
