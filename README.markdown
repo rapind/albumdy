@@ -68,7 +68,6 @@ Features
 * Javascript based photo albums.
 * Stats on when your clients last logged in (good to know if they haven't visited their booking gallery before it expired).
 
-
 Themes
 ------
 
@@ -77,6 +76,11 @@ ERB and HAML based themes are supported and can be found in the /themes director
 I've tried to keep these as simple as possible for now and they're just for the public area of your site. I don't see the value in theming the admin section for now.
 
 Each theme has it's own directory, and the easiest way to get started building your theme is to copy the default theme to a new directory. I.e. "cp -r themes/default themes/mycustomtheme"
+
+Roadmap
+-------
+
+I'm planning to keep this project as simple as possible to make it easy to install, use, and customize. However, I'm open to ideas if you think there's a specific feature that most people would want to see.
 
 Credits
 -------
