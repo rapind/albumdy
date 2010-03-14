@@ -12,6 +12,7 @@ config.whiny_nils = true
 # Show full error reports and disable caching
 config.action_controller.consider_all_requests_local = true
 config.action_controller.perform_caching             = false
+config.action_view.cache_template_loading            = true
 
 # Disable request forgery protection in test environment
 config.action_controller.allow_forgery_protection    = false
@@ -21,5 +22,7 @@ config.action_controller.allow_forgery_protection    = false
 # ActionMailer::Base.deliveries array.
 config.action_mailer.delivery_method = :test
 
-# Domain setting for mailers
-DOMAIN = "albumdy.rapin.com"
+# Use SQL instead of Active Record's schema dumper when creating the test database.
+# This is necessary if your schema can't be completely dumped by the schema dumper,
+# like if you have constraints or database-specific column types
+# config.active_record.schema_format = :sql

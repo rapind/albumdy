@@ -1,0 +1,5 @@
+%h1= h(@album.title)
+%p= h(@album.description)
+%ul
+  - for photo in @album.photos
+    %li= link_to(image_tag(photo.image.url(:thumb), :alt => h(photo.title)), photo.image.url, :title => photo.title)

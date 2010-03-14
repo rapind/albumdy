@@ -1,0 +1,9 @@
+#header
+  %h1
+    = link_to @config.site_name, root_path
+  %ul.nav
+    %li
+      = link_to 'Albums', albums_path, :class => "#{'active' if controller.controller_name == 'albums'}"
+    - unless @config.blog_url.blank?
+      %li.last
+        = link_to 'Blog', @config.blog_url

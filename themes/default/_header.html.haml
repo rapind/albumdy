@@ -1,0 +1,10 @@
+#header
+  %h1
+    = link_to @config.site_name, root_path
+  %ul.nav
+    - for album in @albums
+      %li
+        = link_to h(album.title), album_path(album), :class => "#{'active' if @album and @album.id == album.id}"
+    - unless @config.blog_url.blank?
+      %li.last
+        = link_to 'Blog', @config.blog_url

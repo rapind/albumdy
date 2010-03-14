@@ -1,4 +1,0 @@
-<%= error_messages_for :photo %>
-<% form_for(:photo, :url => user_album_photo_path(current_user, @album, @object), :html => { :method => :put, :multipart => true }) do |f| %>
-  <%= render :partial => "form", :locals => { :f => f } %>
-<% end %>

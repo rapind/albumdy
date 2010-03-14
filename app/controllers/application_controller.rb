@@ -1,28 +1,78 @@
-# Filters added to this controller apply to all controllers in the application.
-# Likewise, all the methods added will be available for all controllers.
-
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
+  protect_from_forgery # See ActionController::RequestForgeryProtection for details
+  
+  helper_method :current_administrator_session, :current_administrator
+  filter_parameter_logging :password
+  before_filter :config
+  
+  #unless ActionController::Base.consider_all_requests_local
+    rescue_from ActiveRecord::RecordNotFound, ActionController::RoutingError, ActionController::UnknownController, ActionController::UnknownAction, :with => :render_404
+  #end
+  
+  private #-------
+    
+    def render_404
+      redirect_to not_found_path
+    end
+    
+    # retrieve site configuration information
+    def config
+      return @config if defined?(@config)
+      begin
+        @config = Administrator.find(:first) #configuration is stored in the administrator model for now (simple)
+      rescue Exception => e
+        flash[:error] = e.message
+        redirect_to config_error_path
+        return
+      end
+    end
+    
+    def current_administrator_session
+      return @current_administrator_session if defined?(@current_administrator_session)
+      @current_administrator_session = AdministratorSession.find
+    end
 
-  include AuthenticatedSystem
+    def current_administrator
+      return @current_administrator if defined?(@current_administrator)
+      @current_administrator = current_administrator_session && current_administrator_session.record
+    end
+    
+    def require_administrator
+      unless current_administrator
+        store_location
+        #flash[:notice] = "You must be logged in to access this page."
+        redirect_to admin_login_path
+        return false
+      end
+    end
+    
+    def require_no_administrator
+      if current_administrator
+        store_location
+        #flash[:notice] = "You must be logged out to access this page."
+        redirect_to admin_path
+        return false
+      end
+    end
 
-  # See ActionController::RequestForgeryProtection for details
-  # Uncomment the :secret if you're not using the cookie session store
-  protect_from_forgery # :secret => '4dedc3c0ed5c809a5a6ef57727f366c9'
-  
-  # this removes the layout for all ajax requests across the board
-  layout proc { |controller| controller.request.xhr? ? nil : 'application' }
+    def store_location
+      session[:return_to] = request.get? ? request.request_uri : request.referer
+    end
+    
+    def clear_location
+      session[:return_to] = nil
+    end
 
-  before_filter :set_meta
-  
-  def sub_nav
-    'default'
-  end
-  
-  def set_meta
-    @page_title = 'Who is Albumdy?'
-    @page_description = 'Albumdy is an open source photo gallery built using Ruby on Rails, jQuery, and some of my other favorite technologies, plugins, and practices.'
-    @page_keywords = 'album, photo, gallery, ruby, rails, ruby on rails, open source, blueprint, jquery, lightbox, thickbox, resource_controller, attachment_fu, restful_authentication, braid, github'
-  end
-  
+    def redirect_back_or_default
+      if session[:return_to]
+        redirect_to session[:return_to]
+        session[:return_to] = nil
+      elsif request.request_uri.include?('/admin')
+        redirect_to admin_albums_path
+      else
+        redirect_to root_path
+      end
+    end
+    
 end

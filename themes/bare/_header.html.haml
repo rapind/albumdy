@@ -1,0 +1,7 @@
+%h1= link_to @config.site_name, root_path
+%ul
+  %li
+    = link_to 'Albums', albums_path
+  - unless @config.blog_url.blank?
+    %li
+      = link_to 'Blog', @config.blog_url

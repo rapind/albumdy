@@ -1,0 +1,29 @@
+= GrokPhoto Default Theme
+
+== File Structure
+
+=== Layout
+The layout for your public site is in: layout/layout.html.haml
+
+It's an annoying rails thing that it needs to be in it's own directory, but I'll have a workaround soon.
+
+=== Partials
+There are three partials, all beginning with an underscore.
+* _header.html.haml
+* _sidebar.html.haml
+* _footer.html.haml
+
+The header and the footer are used in the layout. The sidebar is used in your basic pages and album.
+
+=== Home / Landing Page
+home.html.haml
+
+=== Albums
+The album.html.haml page is used to showcase your portfolio photos. It contains a javascript image slideshow with thumbnails as well as links to each of the other albums.
+
+=== Sitemap
+sitemap.html.haml is a basic sitemap that no one will ever bother visiting. Potentially good for SEO though.
+A google sitemap is already being generated for all themes.
+
+
+

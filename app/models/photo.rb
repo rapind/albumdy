@@ -1,44 +1,49 @@
 class Photo < ActiveRecord::Base
-  
-  belongs_to :album, :counter_cache => true
-  acts_as_list :scope => :album
-  
-  validates_presence_of :album
-  validates_length_of :title, :within => 5..128, :allow_nil => true, :allow_blank => true
+  belongs_to :album
+  acts_as_list :scope => :album_id
   
   has_attached_file :image,
-                    # using typical SLR camera aspect ratio of 2:3 (I.e. 4" x 6")
-                    :styles => { :original => "700x466", :cover => "150x100!", :thumb => "68x50!" },
-                    :path => ":rails_root/public/photos/:id/:style_:basename.:extension",
-                    :url => "/photos/:id/:style_:basename.:extension"
-                    #:storage => :s3,
-                    #:s3_credentials => "#{RAILS_ROOT}/config/amazon_s3.yml",
-                    #:path => "photos/:id/:style_:basename.:extension",
-                    #:bucket => 'albumdy'
-                    
+                    :styles => { :original => "", :thumb => "" },
+                    :path => ":rails_root/public/attachments/albums/:album_id/photos/:id/:style/:basename.:extension",
+                    :url => "/attachments/albums/:album_id/photos/:id/:style/:basename.:extension",
+                    :convert_options => {
+                      :original => "-gravity center -thumbnail 660x440^ -extent 660x440",
+                      :thumb => "-gravity center -thumbnail 150x100^ -extent 150x100"
+                    }
+  
   validates_attachment_presence :image
-  validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/gif', 'image/png', 'image/pjpeg', 'image/x-png'] 
+  validates_attachment_size :image, :less_than => 5000000
+  #validates_attachment_content_type :image, :content_type => ['image/jpeg']
   
-  # This is the datetime format EXIF datetime is represented in 
-  @@exif_date_format = '%Y:%m:%d %H:%M:%S'
+  has_friendly_id :build_title, :use_slug => true
   
-  # Define Paperclip callback just for the Photo attachment 
-  after_image_post_process  :post_process_image
+  before_save :build_title
+  after_save :clear_cache
   
-  # Callback after styles processing (thumbnails). 
-  # Use this to extract Exif metadata from the image
-  def post_process_image
-    # only works with jpgs
-    if image.content_type == 'image/jpeg' || 'image/pjpeg'
-      img_meta = EXIFR::JPEG.new(image.queued_for_write[:original].path)
-      return unless img_meta
-      logger.debug "Photo EXIF: " + img_meta.inspect
-      self.camera_model = img_meta.model
-      self.exposure_time = img_meta.exposure_time.to_s
-      self.f_number = img_meta.f_number.to_s
-      self.taken_at = img_meta.date_time
-      # also have width and height. See http://exifr.rubyforge.org/api/index.html for details
-    end
+  def build_title
+    self.title = image_file_name[0, image_file_name.rindex('.')].humanize.titleize if title.blank?
+    return self.title
   end
-    
+  
+  def set_exif_data
+    exif = EXIFR::JPEG.new( self.image.path )
+    return if exif.nil? or not exif.exif?
+    self.width            = exif.width
+    self.height           = exif.height
+    self.camera_brand     = exif.make
+    self.camera_model     = exif.model
+    self.exposure_time    = exif.exposure_time.to_s
+    self.f_number         = exif.f_number.to_f
+    self.iso_speed_rating = exif.iso_speed_ratings
+    self.shot_at          = exif.date_time
+    self.focal_length     = exif.focal_length.to_f
+  rescue
+    false
+  end
+  
+  def clear_cache
+    # clear the parent album's show page
+    FileUtils.rm_rf(File.join(Rails.root, 'public', 'albums', "#{self.album.friendly_id}.html"))
+  end
+  
 end

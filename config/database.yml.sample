@@ -1,20 +1,17 @@
 login: &login
   adapter: mysql
-  username: root
-  password: 
-  socket: /tmp/mysql.sock
+  username: root #TODO - change this to your database username
+  password: #TODO - change this to your database password
+  database: albumdy #TODO - change this to your database
   
 development:
   <<: *login
-  database: albumdy_development
+  socket: /tmp/mysql.sock
 
-test:
+test: &TEST
   <<: *login
-  database: albumdy_test
+  socket: /tmp/mysql.sock
 
 production:
-  adapter: mysql
-  username: root
-  password: 
+  <<: *login
   socket: /var/run/mysqld/mysqld.sock
-  database: albumdy

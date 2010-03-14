@@ -1,0 +1,32 @@
+!!!
+%html{ "xml:lang" => "en", :lang => "en", :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %meta{ :content => "text/html;charset=UTF-8", "http-equiv" => "content-type" }
+    %meta{ :content => "chrome=1", "http-equiv" => "X-UA-Compatible" }
+    %link{:rel => 'shortcut icon', :href => '/favicon.ico'}
+    %meta{ :name => 'keywords', :content => defined?(@page_keywords) ? @page_keywords : "#{@config.site_name.downcase}, photography, professional, newborn, maternity, kids, babies, family, portraits, albums, portfolio, toronto, ontario, canada" }
+    %meta{ :name => 'description', :content => defined?(@page_description) ? @page_description : "#{h(@config.site_name)}. Professional administrator in Toronto, ON, Canada. Specializing in newborn, maternity, kids, babies, and family portrait photography." }
+    %title= "#{(defined?(@page_title) ? @page_title : controller.controller_name.humanize.titleize)} - #{@config.site_name}"
+    = stylesheet_link_tag 'default.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'global/print.css', :media => 'print'
+    /[if lt IE 8]
+      = stylesheet_link_tag 'global/ie.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'global/gritter.css', 'global/colorbox.css', :media => 'screen, projection'
+    = javascript_include_tag 'jquery.min.js', 'jquery.cycle.lite.1.0.min.js', 'jquery.gritter.js', 'jquery.colorbox-min.js', 'jquery.galleria.js', 'jquery.rightClick.js', 'default.js'
+    = yield :head
+    %link{ :rel => "shortcut icon", :href => "/favicon.ico", :type => "image/x-icon" }
+  %body
+    #container
+      = render :partial => '/header'
+      = yield
+      = render :partial => '/footer'
+    
+    - unless @config.google_analytics_key.blank?
+      :javascript
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+      :javascript
+        try {
+          var pageTracker = _gat._getTracker("#{@config.google_analytics_key}");
+          pageTracker._trackPageview();
+        } catch(err) {}

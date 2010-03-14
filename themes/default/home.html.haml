@@ -1,0 +1,18 @@
+:javascript
+  $(document).ready(function() {
+    $('#slides').cycle({
+  		timeout: 5000,
+      speed: 2500
+  	});
+  });
+	
+#content
+  #slides
+    - for album in @albums
+      %div
+        = link_to(image_tag(album.image.url, :size => '960x540', :alt => h(album.title), :title => h(album.title)), album_path(album), :id => album.id)
+        %div{ :id => "description_#{album.id}", :class => 'slide_description' }
+          %h2= h(album.title)
+          = h(album.description)
+
+%p.clearfix

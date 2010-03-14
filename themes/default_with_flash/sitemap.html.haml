@@ -1,0 +1,14 @@
+#intro
+  %h1 Sitemap
+#content
+  #main
+    %ul
+      %li
+        %h3= link_to 'Home', root_path, :title => 'Home'
+      %li
+        %h3 Albums
+        %ul
+          - for album in @albums
+            %li= link_to h(album.title), album_path(album), :title => h(album.title)
+  #sidebar
+    = render :partial => '/sidebar'
