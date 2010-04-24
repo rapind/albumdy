@@ -6,7 +6,8 @@ administrator = Administrator.create(
   :site_email => 'info@albumdy.org',
   :blog_url => 'http://rapin.com',
   :theme => 'default',
-  :google_analytics_key => 'UA-2450369-24'
+  :google_analytics_key => 'UA-2450369-24',
+  :home_page_title => 'Toronto Photo Gallery'
 )
 administrator.save
 

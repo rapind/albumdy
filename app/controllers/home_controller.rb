@@ -12,6 +12,7 @@ class HomeController < ApplicationController
   
   # landing page
   def index
+    @page_title = @config.home_page_title ||= 'Photo Gallery'
     @albums = @config.albums.find :all
     render :template => '/home'
   end
