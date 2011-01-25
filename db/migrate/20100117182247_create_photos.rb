@@ -2,7 +2,7 @@ class CreatePhotos < ActiveRecord::Migration
   def self.up
     create_table :photos do |t|
       t.references :album, :null => false
-      t.integer :position, :null => false, :default => 1
+      t.integer :position, :default => 1
       t.string :title, :null => false, :limit => 128
       
       # paperclip attachment fields
